@@ -2,8 +2,9 @@ import React,{useEffect, useState} from 'react'
 import { useHistory,useLocation } from 'react-router';
 import './showMarkspage.css'
 import axios from 'axios'
-import { red,blue } from '@mui/material/colors';
+import { red,blue, yellow, brown, green } from '@mui/material/colors';
 import OutlinedInput from "@material-ui/core/OutlinedInput";
+import { amber } from '@material-ui/core/colors';
 
 
 function InAnswers(props) {
@@ -37,47 +38,54 @@ function InAnswers(props) {
                
                     <div> 
                         <div className="progressCard" >
-                            
                             <div className="p-3">
                                 <h2>මුලු ලකුණු</h2>
                                 <div align="right">
                                 <span> 
 
                                 <div className="marksCard" >
-                                      <center><h3>{marks}  </h3> </center> 
+                                      <center ><h3>{marks}  </h3> </center> 
                                 </div>
                                 </span> 
                                 </div>
                             </div>
                             
-
-                          <p>
-                            dsfjsdjkfhjksdnfknsdjkfbhjsdhfnb dshbfhsdjhfbasdjhbfhsdfhbsaf fgdgdfgvdfvgbfdgbvdfsgbvfdgdfgfdgfdgfdgfdgf
-                          </p>
+                          <center>
+                            <h2>
+                          ඔබට අවසිනම් අප නිර්දේශ කර ඇති වෛද්‍යවරුන්ගේ විස්තර අධ්‍යයනය කර සුදුසු වෛද්‍යවරයෙක් 
+                          </h2>
+                          <h2>
+                         පහත බටනය ක්ලික් කර තෝරාගත හැක හෝ පර්යෙෂණ වාර්තාව බාගත කිරීම අදාල බටනය ක්ලික් කරන්න.නැතිනම් ඔටිසම් රෝගයට ඔබේ දරුවාට 
+                          </h2>
+                          <h2>
+                          අධ්‍යාපනය ක්‍රියාකාරකම් සදහා අදාල බටනය ක්ලික් කරන්න.
+                          </h2>
+                          </center>
+                          
                           <div className="p-3">
-                                <h2>waiyda wisthara</h2>
+                                <h2>වෛද්‍ය විස්තර</h2>
                                 <div align="right">
                                 <span> 
 
-                                <button className="progressBtn" style={{backgroundColor:red[400]}} onClick={()=>view()}> View submission </button>
+                                <button className="progressBtn" style={{backgroundColor:blue[400]}} onClick={()=>view()}>වෛද්‍ය විස්තර</button>
                                 </span> 
                                 </div>
                             </div>
                             <div className="p-3">
-                                <h2>PDF Download</h2>
+                                <h2>පර්යෙෂණ වාර්තාව</h2>
                                 <div align="right">
                                 <span> 
 
-                                <button className="progressBtn" style={{backgroundColor:red[400]}} onClick={()=>download()}>PDF Download</button>
+                                <button className="progressBtn" style={{backgroundColor:green[600]}} onClick={()=>download()}>බාගත කරන්න</button>
                                 </span> 
                                 </div>
                             </div>
                             <div className="p-3">
-                                <h2>waiyda wisthara</h2>
+                                <h2>ඔටිසම් රෝගය සදහා දරුවාට අධ්‍යාපනය ක්‍රියාකාරකම්</h2>
                                 <div align="right">
                                 <span> 
 
-                                <button className="progressBtn" style={{backgroundColor:red[400]}} onClick={()=>view()}> View submission </button>
+                                <button className="progressBtn" style={{backgroundColor:amber[800]}} onClick={()=>view()}> යොමුවන්න </button>
                                 </span> 
                                 </div>
                             </div>

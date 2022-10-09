@@ -81,7 +81,7 @@ function ProgressLevel() {
                                     <ShoppingCartIcon/> 
                                   </button> */}
                                   &nbsp;&nbsp;&nbsp;
-                                  <button className="progressBtn" style={{backgroundColor:red[400]}} onClick={()=>view(Questions.name)}> Add Details </button>
+                                  <button className="progressBtn" style={{backgroundColor:red[400]}} onClick={()=>view(Questions.name)}>ඇතුලත් කරන්න </button>
                               </span> 
                             </div>
                         </div>

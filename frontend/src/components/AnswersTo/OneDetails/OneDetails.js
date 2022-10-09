@@ -49,7 +49,7 @@ function Submit(props) {
         <div className="row">
             <div className="col-12">
                 <div className="pb-2 px-3 d-flex flex-wrap align-items-center justify-content-between">
-                    <h2>&nbsp;Add Answer</h2>
+                    <h2>&nbsp;තොරතුරු ඇතුලත් කරන්න</h2>
                 </div>
             </div>
         </div>
@@ -72,7 +72,7 @@ function Submit(props) {
                             <div className="col-md-8 mb-4">
                                 <div className="form-name">
                                     <OutlinedInput
-                                        type="text" id="name" placeholder="Answer" 
+                                        type="text" id="name" placeholder="තොරතුරු" 
                                         required fullWidth
                                         onChange={(e)=>setAnswerName(e.target.value)}
                                         inputProps={{style: {padding: 12}}} 
@@ -88,7 +88,7 @@ function Submit(props) {
                 <div className="row">
                     <div className="col-md-12">
                         <div className="form-group">
-                            <input className="form-submit-btn" type="submit" value="Add Answer" />
+                            <input className="form-submit-btn" type="submit" value="ඇතුලත් කරන්න" />
                         </div>
                     </div>
                 </div>

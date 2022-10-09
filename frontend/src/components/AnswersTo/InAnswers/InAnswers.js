@@ -32,9 +32,9 @@ function InAnswers() {
     return (
         <div className="container">
           <div className="row">
-              <div className="col-4">
+              <div className="col-6">
                 <div className="pb-2 px-3 d-flex flex-wrap align-items-center justify-content-between">
-                    <h2>Questions </h2>
+                    <h2>ඔබේ දරුවාට ඕටිසම් තිබේද යැයි පරීක්ෂා කිරිම </h2>
                 </div>
               </div>
               <div className="col-3">
@@ -43,7 +43,7 @@ function InAnswers() {
     
      {/* </div> */}
      <div className="row">
-            <h4 className="mb-4"> Questions </h4>
+          
             <form onSubmit={submitMarks}>
 
                
@@ -51,7 +51,7 @@ function InAnswers() {
                         <div className="progressCard" >
                             
                             <div className="p-3">
-                                <h2>1. how many words child talk in a day?</h2>
+                                <h2>1. ලමයා දිනකට කොච්චර වචන පවසනවාද?</h2>
                                 <div align="right">
                                 <span> 
                                 
@@ -63,7 +63,7 @@ function InAnswers() {
                                                 onChange={(e)=>setDayWord(e.target.value)}
                                             />
                                             <label className="form-check-label" for="wordless5">
-                                            less 5 
+                                            10ට අඩු
                                             </label>
                                     </div>
                                     <div className="form-check form-check-inline">
@@ -72,7 +72,7 @@ function InAnswers() {
                                                 onChange={(e)=>setDayWord(e.target.value)}
                                             />
                                             <label className="form-check-label" for="wordmore5">
-                                            more than 5
+                                            10ට වැඩි
                                             </label>
                                     </div>
                                 </div>
@@ -87,7 +87,7 @@ function InAnswers() {
                         <div className="progressCard" >
                             
                             <div className="p-3">
-                                <h2>2. when you show some thing to child then is child watch there?</h2>
+                                <h2>2. ඔබ කාමරය හරහා යමක් පෙන්වා ඇත්නම්, ඔබේ දරුවා ඒ දෙස බලනවාද?</h2>
                                 <div align="right">
                                 <span> 
                                 
@@ -99,7 +99,7 @@ function InAnswers() {
                                                 onChange={(e)=>setSeeObject(e.target.value)}
                                             />
                                             <label className="form-check-label" for="PUBLISH">
-                                           no
+                                           නෑ
                                             </label>
                                     </div>
                                     <div className="form-check form-check-inline">
@@ -108,7 +108,7 @@ function InAnswers() {
                                                 onChange={(e)=>setSeeObject(e.target.value)}
                                             />
                                             <label className="form-check-label" for="UNPUBLISH">
-                                            yes
+                                            ඔව්
                                             </label>
                                     </div>
                                 </div>
@@ -122,7 +122,7 @@ function InAnswers() {
                         <div className="progressCard" >
                             
                             <div className="p-3">
-                                <h2>3.When you show some thing then is child identify that </h2>
+                                <h2>3.ඔබේ දරුවාට යමක් පෙන්නු විට දරුවා එය හදුනා ගන්නවා ද?</h2>
                                 <div align="right">
                                 <span> 
                                 
@@ -134,7 +134,7 @@ function InAnswers() {
                                                 onChange={(e)=>setIdentifyObject(e.target.value)}
                                             />
                                             <label className="form-check-label" for="PUBLISH">
-                                            no
+                                           නෑ
                                             </label>
                                     </div>
                                     <div className="form-check form-check-inline">
@@ -143,7 +143,7 @@ function InAnswers() {
                                                 onChange={(e)=>setIdentifyObject(e.target.value)}
                                             />
                                             <label className="form-check-label" for="UNPUBLISH">
-                                          yes
+                                            ඔව්
                                             </label>
                                     </div>
                                 </div>
@@ -157,7 +157,7 @@ function InAnswers() {
                         <div className="progressCard" >
                             
                             <div className="p-3">
-                                <h2>4. child can identify more than 5 colors</h2>
+                                <h2>4.ඔබේ දරුවා වර්ණ 5කට වඩා හදුනා ගන්නවා ද?</h2>
                                 <div align="right">
                                 <span> 
                                 
@@ -169,7 +169,7 @@ function InAnswers() {
                                                 onChange={(e)=>setDayWord(e.target.value)}
                                             />
                                             <label className="form-check-label" for="PUBLISH">
-                                           no
+                                            නෑ
                                             </label>
                                     </div>
                                     <div className="form-check form-check-inline">
@@ -178,7 +178,7 @@ function InAnswers() {
                                                 onChange={(e)=>setDayWord(e.target.value)}
                                             />
                                             <label className="form-check-label" for="UNPUBLISH">
-                                            yes
+                                            ඔව්
                                             </label>
                                     </div>
                                 </div>
@@ -191,7 +191,7 @@ function InAnswers() {
                         <div className="progressCard" >
                             
                             <div className="p-3">
-                                <h2>5.The first word child told?</h2>
+                                <h2>5.ඔබේ දරුවා පළමු වචනය පැවසුවේ?</h2>
                                 <div align="right">
                                 <span> 
                                 
@@ -203,7 +203,7 @@ function InAnswers() {
                                                 onChange={(e)=>setFirstWord(e.target.value)}
                                             />
                                             <label className="form-check-label" for="firstword19">
-                                          after 18 months
+                                          මාස 18 පසු
                                             </label>
                                     </div>
                                     <div className="form-check form-check-inline">
@@ -212,7 +212,7 @@ function InAnswers() {
                                                 onChange={(e)=>setFirstWord(e.target.value)}
                                             />
                                             <label className="form-check-label" for="firstword18">
-                                            before 18 months
+                                           මාස 18 පෙර
                                             </label>
                                     </div>
                                 </div>
@@ -229,7 +229,7 @@ function InAnswers() {
           <div>
             <input
               type='submit'
-              value='SUBMIT ANSWERS '
+              value='පිළිතුරු ඇතුලත් කරන්න '
               className='form-submit-btn'
             />
           </div>

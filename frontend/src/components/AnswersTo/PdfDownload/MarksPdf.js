@@ -31,11 +31,11 @@ function InAnswers(props) {
 
     return (
     <div className="container">
-        <div ref={componentRef}>
+        
                 <div className="row">
                         <div className="col-4">
                             <div className="pb-2 px-3 d-flex flex-wrap align-items-center justify-content-between">
-                                <h2>Marks </h2>
+                                <h2>මුලු ලකුණු </h2>
                             </div>
                         </div>
                         <br></br> <br></br> <br></br> <br></br> <br></br> <br></br> <br></br> <br></br>
@@ -43,32 +43,53 @@ function InAnswers(props) {
                         </div>
                 </div>
                 <div className="row">
+                <div ref={componentRef}>
                     <div> 
                         <div className="progressCard" >
+                        <div className="col-xl-18" align="center">
+                        <br/>
+                        <img src="/images/Logo.png" className="logoFooter2" alt="logo"/>
+                    </div>
+                    <div className="col-xl-18" align="center">
+                        <br/>
+                        <h1>නීරෝගී </h1>
+                    </div>
+                            <br></br><br></br>
                                 <div className="p-3">
                                             <h3>මුලු ලකුණු</h3>
                                     <div align="right">
                                         <span> 
                                             <div className="marksCard" >
-                                                <center><h3>{marks}</h3></center> 
+                                                <center>
+                                                    <div  >
+                                                    <h3 className="marksCardA">{marks}</h3> 
+                                                    </div>
+                                                   
+                                                </center> 
                                             </div>
                                         </span>
                                     </div> 
                                 </div> 
                                 { w === "Underage" ?
                                 <div>
-                                    <center><h3> ඔබේ දරුවාට ඕටිසම් රෝගය තිබිය හැක.  </h3> </center> 
+                                    <center><h3> ඔබ ඇතුලත් කල දත්ත අනුව ඔබේ දරුවාට ඔටිසම් රෝගය තිබිය හැක. එම නිසා ඔබේ දරුවාව වෛද්‍යවරයෙකු වෙත යොමු කිරීම සුදුසු වේ.‍ </h3> </center> 
+                                    <br></br>  <br></br>  <br></br> 
                                     </div>
                                     :
                                     <div>
-                                    <center><h3>ඔබේ දරුවා නිරෝගී දරුවෙක් විය හැකී.  </h3> </center> 
+                                    <center><h1>සුබ පැතුම්!!! </h1>
+                                    <br></br>  <br></br> 
+                                    <h3> ඔබ ඇතුලත් කල දත්ත අනුව ඔබේ දරුවා නිරෝගී දරුවෙක් විය හැකී.  </h3></center> 
+                                    <br></br>  <br></br>  <br></br> 
                                     </div>
+                                     
                                     }
                                 </div>
+                                <br></br>  <br></br>  <br></br> 
                             </div>
                                     
                         </div>
-                        <br></br> <br></br> <br></br> <br></br>
+                        <br></br> <br></br> <br></br> <br></br> <br></br>  <br></br>  <br></br> 
                         <center>
                             <div className="w-25 p-3" align='center'>
                                 <Button
@@ -81,7 +102,7 @@ function InAnswers(props) {
                                     onClick={handlePrint}
                                     fullWidth
                                         >
-                                    Download Details 
+                                    බාගත කරන්න
                                 </Button>
                             </div>
                         </center>       
