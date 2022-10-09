@@ -25,7 +25,7 @@ const location = useLocation()
     async function getAllQuestions() {
         axios.get(`http://localhost:8070/question/questions`).then((res) => {
             setQuestions(res.data)  
-            
+           
         }).catch((error) => {
           alert("Failed to fetch Questions")
          
@@ -33,10 +33,11 @@ const location = useLocation()
       }
     
       getAllQuestions();
-    })
+    },[])
     async function deleteQuestion(id){        
       await axios.delete(`http://localhost:8070/question/question/${id}`).then(() => {
           alert("Question deleted successfully")
+          
           history.push('/question/AllQuestions')
       }).catch((error) => {
           alert(`Failed to delete the Questions\n${error.message}`)

@@ -30,6 +30,7 @@ const getAllQuestions = async (req, res, next) => {
                     
                 );
                 questionsArray.push(question);
+                
             });
             res.send(questionsArray);
         }

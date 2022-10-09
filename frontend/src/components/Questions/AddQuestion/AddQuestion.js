@@ -13,9 +13,6 @@ import { TextField } from '@material-ui/core';
 function AddQuestion() {
     const[name,setName]=useState(""); 
     const [fileInputState, setFileInputState] = useState('');
-
-    
-
     
 
     async function add(event){
@@ -25,8 +22,6 @@ function AddQuestion() {
                 "content-Type": "application/json"
             }
         };
-        
-    
 
         const newQuestion = {name}
         

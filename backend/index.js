@@ -6,6 +6,8 @@ const config = require('./config');
 const articlerouter = require('./routes/ArticleRouter');
 const videorouter = require('./routes/VideoRouter');
 const QuestionRouter = require("./routes/questionrouter.js");
+const AnswerdasRouter = require("./routes/detailsAnswersdarouter");
+
 
 const app = express();
 
@@ -16,4 +18,5 @@ app.use(bodyParser.json());
 app.use("/article",articlerouter);
 app.use("/video",videorouter);
 app.use("/question",QuestionRouter);
+app.use("/answerdas",AnswerdasRouter);
 app.listen(config.port, () => console.log('App is listening on url http://localhost:' + config.port));
