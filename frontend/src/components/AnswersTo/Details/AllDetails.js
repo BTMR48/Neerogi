@@ -51,7 +51,7 @@ function ProgressLevel() {
           <div className="row">
               <div className="col-4">
                 <div className="pb-2 px-3 d-flex flex-wrap align-items-center justify-content-between">
-                    <h2>Progress Levels </h2>
+                    <h2>තොරතුරු ලබාදීම</h2>
                 </div>
               </div>
               <div className="col-3">
@@ -70,7 +70,7 @@ function ProgressLevel() {
                     <div className="progressCard" >
                         
                         <div className="p-3">
-                            <h2>{Questions.id}</h2>
+                            {/* <h2>{Questions.id}</h2> */}
                             <h2>{Questions.name}</h2>
                             <div align="right">
                               <span> 

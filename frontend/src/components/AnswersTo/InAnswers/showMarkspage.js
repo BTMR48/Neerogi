@@ -16,7 +16,7 @@ function InAnswers(props) {
 
    
   function download(){
-    history.push(`/evolution/level`)
+    history.push(`/InAnswers/MarksPDF/${marks}`)
   }
 
     return (

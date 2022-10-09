@@ -15,6 +15,8 @@ import InAnswers from './components/AnswersTo/InAnswers/InAnswers';
 import ShowMarks from './components/AnswersTo/InAnswers/showMarkspage';
 import OneDetails from './components/AnswersTo/OneDetails/OneDetails';
 import ClientHome from './components/HomePage/ClientHome/clientHome';
+import AdminHome from './components/HomePage/AdminHome/AdminHome';
+import MarksPDF from './components/AnswersTo/PdfDownload/MarksPdf';
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
             <Route path="/questions/markspage/:marks" exact component={ShowMarks} />
             <Route path="/AllDetails/onedetails/:name" exact component={OneDetails} />
             <Route path="/ClientHome" exact component={ClientHome} />
+            <Route path="/AdminHome" exact component={AdminHome} />
+            <Route path="/InAnswers/MarksPDF/:marks" exact component={MarksPDF} />
             <Footer/>
         </div>
       </Router>
