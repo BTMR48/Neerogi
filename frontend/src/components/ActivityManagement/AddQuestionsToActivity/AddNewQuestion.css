@@ -1,0 +1,9 @@
+.previewImg {
+    border-radius: 10;
+    vertical-align: middle;
+    border-style: none;
+    position: relative;
+    max-width: 220px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
