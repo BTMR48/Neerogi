@@ -6,6 +6,9 @@ import AdminSignIn from './components/AdminManagement/AdminLogin';
 import AdArticlesList from './components/Articles/ArticleList/Items';
 //import AdArticlesView from './components/Articles/ViewArticles';
 import Footer from './components/Footer/Footer';
+import AllDoctors from './components/DoctorList/alldoctors'
+import DoctorAdd from './components/DoctorAdd/DoctorAdd'
+import DoctorUpdate from './components/DoctorUpdate/DoctorUpdate'
 import AllQuestions from './components/Questions/AllQuestions/AllQuestions';
 import AddQuestions from './components/Questions/AddQuestion/AddQuestion';
 import UpdateQuestion from './components/Questions/UpdateQuestion/UpdateQuestion';
@@ -18,14 +21,16 @@ import ClientHome from './components/HomePage/ClientHome/clientHome';
 import AdminHome from './components/HomePage/AdminHome/AdminHome';
 import MarksPDF from './components/AnswersTo/PdfDownload/MarksPdf';
 
+
 function App() {
   return (
     <div className="App">
       <Router>
         <div>
-         
-            
             <Route path="/admin/signin" exact component={AdminSignIn} />
+            <Route path="/doctor/all" exact component={AllDoctors} />
+            <Route path="/doctor/add" exact component={DoctorAdd} />
+            <Route path="/doctor/update/:id" exact component={DoctorUpdate} />
             <Route path="/question/AllQuestions" exact component={ AllQuestions } />
             <Route path="/question/AddQuestions" exact component={ AddQuestions } />
             <Route path="/question/UpdateQuestion/:id" exact component={ UpdateQuestion } />
