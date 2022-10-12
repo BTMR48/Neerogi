@@ -1,20 +1,10 @@
-const bcrypt = require("bcrypt");
+class Activity {
+    constructor(id,activityId, activityName, activityCode){
+        this.id = id;
+        this.activityId = activityId;
+        this.activityName = activityName;
+        this.activityCode = activityCode;
+    }
+}
 
-const activity = new activity({
-    
-    activityId : {
-        type: String,
-        require : true
-    },
-    activityName: {
-        type : String,
-        require: true
-    },
-    activityCode: {
-        type : String,
-        require: true
-    },
-
-})
-
-module.exports = activity
+module.exports = Activity;
