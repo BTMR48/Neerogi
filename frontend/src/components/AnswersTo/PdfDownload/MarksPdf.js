@@ -28,8 +28,17 @@ function InAnswers(props) {
                 w = "Let em in!";
     }
   
-
+    const myStyle={
+        backgroundImage: 
+        "url('/images/backgroundimg.jpg')",
+        //  height:'100vh',
+         marginBottom:'-120px',
+        // fontSize:'50px',
+        backgroundSize: 'cover',
+        // backgroundRepeat: 'no-repeat',
+    };
     return (
+    <div style={myStyle}>
     <div className="container">
         
                 <div className="row">
@@ -107,9 +116,10 @@ function InAnswers(props) {
                             </div>
                         </center>       
                     </div>
-                </div>
+                    </div>
+                    </div>
 
-    
+
             
     
     )      

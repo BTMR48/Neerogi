@@ -43,11 +43,22 @@ function ProgressLevel() {
   function view(name){
     history.push(`/AllDetails/onedetails/${name}`)
   }
-  
+  const myStyle={
+    backgroundImage: 
+    "url('/images/backgroundimg.jpg')",
+     height:'100vh',
+     marginBottom:'-120px',
+    // fontSize:'50px',
+    backgroundSize: 'cover',
+    // backgroundRepeat: 'no-repeat',
+};
 
 
     return (
-        <div className="container">
+      <div style={myStyle}>
+        
+         <div className="container">
+
           <div className="row">
               <div className="col-4">
                 <div className="pb-2 px-3 d-flex flex-wrap align-items-center justify-content-between">
@@ -57,10 +68,6 @@ function ProgressLevel() {
               <div className="col-3">
               </div>
               <div className="col-5">
-       
-            
-            
-        
           </div>
         </div>
         <div className="progressGrid"  > 
@@ -89,6 +96,7 @@ function ProgressLevel() {
                 </div>
           ))} 
         </div>
+      </div>
       </div>
     )      
 }

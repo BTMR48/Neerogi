@@ -19,8 +19,18 @@ function InAnswers(props) {
   function download(){
     history.push(`/InAnswers/MarksPDF/${marks}`)
   }
+  const myStyle={
+    backgroundImage: 
+    "url('/images/backgroundimg.jpg')",
+     height:'100vh',
+     marginBottom:'-120px',
+    // fontSize:'50px',
+    backgroundSize: 'cover',
+    // backgroundRepeat: 'no-repeat',
+};
 
     return (
+      <div style={myStyle}>
         <div className="container">
           <div className="row">
               <div className="col-4">
@@ -32,8 +42,8 @@ function InAnswers(props) {
               </div>
         </div>
     
-     {/* </div> */}
-     <div className="row">
+        {/* </div> */}
+        <div className="row">
   
                
                     <div> 
@@ -100,6 +110,7 @@ function InAnswers(props) {
                
    
           </div>
+    </div>
     </div>
     )      
 

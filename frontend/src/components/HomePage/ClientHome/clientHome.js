@@ -14,7 +14,17 @@ function InAnswers() {
 function Answersforsuti(){
     history.push(`/Answer`)
 }
+const myStyle={
+    backgroundImage: 
+    "url('/images/backgroundimg.jpg')",
+     height:'100vh',
+     marginBottom:'-120px',
+    // fontSize:'50px',
+    backgroundSize: 'cover',
+    // backgroundRepeat: 'no-repeat',
+};
     return (
+        <div style={myStyle}>
         <div className="container">
            
           <div className="row">
@@ -116,6 +126,7 @@ function Answersforsuti(){
                         </div>
             </div>
                 
+    </div>
     </div>
                
             
