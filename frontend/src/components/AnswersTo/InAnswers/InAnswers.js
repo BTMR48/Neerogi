@@ -27,9 +27,19 @@ function InAnswers() {
     if (firstWord === 'firstword18') marks += 10;
     history.push(`/questions/markspage/${marks}`);
   }
+  const myStyle={
+    backgroundImage: 
+    "url('/images/backgroundimg.jpg')",
+    //height:'100vh',
+     marginBottom:'-120px',
+    // fontSize:'50px',
+   // backgroundSize: 'cover',
+    backgroundRepeat: 'repeat',
+};
 
 
     return (
+        <div style={myStyle}>
         <div className="container">
           <div className="row">
               <div className="col-6">
@@ -236,6 +246,7 @@ function InAnswers() {
 
            </form>
           </div>
+    </div>
     </div>
     )      
 

@@ -43,8 +43,19 @@ function Submit(props) {
         })
        // history.push(`/evolution/addProgress`)     
     }
+    const myStyle={
+        backgroundImage: 
+        "url('/images/backgroundimg.jpg')",
+         height:'100vh',
+         marginBottom:'-120px',
+        // fontSize:'50px',
+        backgroundSize: 'cover',
+        // backgroundRepeat: 'no-repeat',
+    };
+    
     
     return (
+    <div style={myStyle}>
     <div className="container" align="center" >
         <div className="row">
             <div className="col-12">
@@ -96,7 +107,7 @@ function Submit(props) {
         </div>                    
     </div>
 
-
+    </div>
         
     )
 }
