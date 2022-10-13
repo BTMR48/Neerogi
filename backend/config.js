@@ -1,5 +1,4 @@
 'use strict';
- const {connect} = require('firefose');
 const dotenv = require('dotenv');
 const assert = require('assert');
 
