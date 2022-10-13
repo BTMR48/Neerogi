@@ -14,7 +14,7 @@ const {
     STORAGE_BUCKET,
     MESSAGING_SENDER_ID,
     APP_ID,
-    Measurement_ID
+
 } = process.env;
 
 assert(PORT, 'PORT is required');
@@ -31,8 +31,6 @@ module.exports = {
         storageBucket: STORAGE_BUCKET,
         messagingSenderId: MESSAGING_SENDER_ID,
         appId: APP_ID,
-        measurementId:Measurement_ID
     }
 }
 
-// await connect(credentials, "Measurement_ID")
