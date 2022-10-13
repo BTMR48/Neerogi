@@ -30,6 +30,9 @@ const getAllArticles = async (req, res, next) => {
                     doc.data().author,
                     doc.data().date,
                     doc.data().content,
+                    doc.data().imgUrl,
+                    doc.data().pdfUrl,
+
                 );
                 articlesArray.push(article);
             });
