@@ -1,19 +1,20 @@
 import React,{useEffect, useState} from 'react'
 import { useHistory,useLocation } from 'react-router';
-import './Items.css'
+import './Articles.css'
 import axios from 'axios'
 import { orange,red,blue,green } from '@material-ui/core/colors';
 import AddIcon from '@material-ui/icons/Add';
 import { Button } from '@material-ui/core';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import EditIcon from '@mui/icons-material/Edit';
 
 
 function ArticleItem() {
 
-  const [isAdmin,setIsAdmin]= useState(false)
   const [articles, setArticles] = useState([])
   const history = useHistory()
-  const location = useLocation()
-  const [user, setUser] = useState("");
 
   useEffect(() => { 
     
@@ -25,11 +26,11 @@ function ArticleItem() {
       })
     }
     getAllArticles();
-  })
+  },[])
   
   function filterContent(data, searchTerm){
     const result = data.filter((article) => 
-        article.name.toLowerCase().includes(searchTerm) 
+        article.author.includes(searchTerm) 
     )
     setArticles(result)
   }
@@ -42,22 +43,36 @@ function ArticleItem() {
       alert("Admin Failed to fetch articles")
     })
   }
-  function view(id){
-    history.push(`/pharmacy/item/${id}`)
+  function view(content){
+    window.open(content);
   }
+
+  async function deleteArticle(id){
+    if(window.confirm("Are you sure to delete this article") == true){
+      await axios.delete(`http://localhost:8070/article/delete/${id}`).then(()=>{
+        alert("deleting article is successful");
+        setArticles( articles.filter(element => element._id !== id))
+      }).catch((error)=>{
+          alert("deleting article failed");
+      })  
+    }
+  
+}
+
+function update(id){
+    history.push(`/admin/articles/update/${id}`)
+}
   
   function addArticle(){
-    history.push(`/pharmacy/addArticle`)
+   history.push(`/admin/articles/add`)
   }
-  function ArticleHistory(){
-    history.push(`/pharmacy/article/history`)
-}
+
     return (
         <div className="container">
           <div className="row">
               <div className="col-4">
                 <div className="pb-2 px-3 d-flex flex-wrap align-items-center justify-content-between">
-                    <h2>Aspirus Pharmacy</h2>
+                    <h2>Articles</h2>
                 </div>
               </div>
               <div className="col-3">
@@ -88,13 +103,25 @@ function ArticleItem() {
                             <img  src={`${Article.imgUrl}`} alt="Article" className="itemProduct"/>
                         </div>
                         <div className="p-3">
-                            <h7>{Article.name}</h7>
-                            <h6>Rs.{Article.price}.00</h6>
-                            <div align="right">
+                            <h7>{Article.heading}</h7>
+                            <h6>{Article.author}</h6>
+                            <h6>{Article.date}</h6>
+                            <div align="center">
                               <span> 
-                                  &nbsp;&nbsp;&nbsp;
-                                  <button className="productBtn" style={{backgroundColor:red[400]}} onClick={()=>view(Article._id)}> View Article</button>
+                                  <IconButton onClick={() => view(Article.pdfUrl)}>
+                                        <VisibilityIcon style={{ color: "#008B8B" }} ></VisibilityIcon>
+                                    </IconButton>
+                              </span>
+                              <span> 
+                                  <IconButton onClick={() => update(Article.id)}>
+                                        <EditIcon style={{ color: "#008B8B" }} ></EditIcon>
+                                    </IconButton>
                               </span> 
+                              <span> 
+                                  <IconButton onClick={() => deleteArticle(Article.id)}>
+                                        <DeleteIcon style={{ color: "#008B8B" }} ></DeleteIcon>
+                                    </IconButton>
+                              </span>  
                             </div>
                         </div>
                     </div>

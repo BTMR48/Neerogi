@@ -27,9 +27,9 @@ const getAllVideos = async (req, res, next) => {
                 const video = new Video(
                     doc.id,
                     doc.data().heading,
-                    doc.data().author,
                     doc.data().date,
-                    doc.data().content,
+                    doc.data().imgUrl,
+                    doc.data().videoUrl,
                 );
                 videosArray.push(video);
             });
