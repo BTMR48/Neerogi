@@ -1,7 +1,11 @@
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import PrivateRoute from './Routes/PrivateRoute';
 
 import './App.css';
-import AdminSignIn from './components/AdminManagement/AdminLogin';
+
+import Header from './components/Header/Header';
+import SignUp from './components/UserManagement/SignUp/SignUp';
+import Login from './components/UserManagement/SignIn/SignIn';
 import ArticlesList from './components/Articles/ArticleList/Articles';
 import VideosList from './components/Videos/VideoList/Videos';
 import AddVideo from './components/Videos/AddVideo/AddVideo';
@@ -13,6 +17,8 @@ import Header from './components/Header/Header';
 import AllDoctors from './components/DoctorList/alldoctors'
 import DoctorAdd from './components/DoctorAdd/DoctorAdd'
 import DoctorUpdate from './components/DoctorUpdate/DoctorUpdate'
+import AllDoctorsClient from './components/DoctorCards/AllDoctors'
+import SingleDoctor from './components/DoctorCards/SingleDoctor'
 import AllQuestions from './components/Questions/AllQuestions/AllQuestions';
 import AddQuestions from './components/Questions/AddQuestion/AddQuestion';
 import UpdateQuestion from './components/Questions/UpdateQuestion/UpdateQuestion';
@@ -32,13 +38,19 @@ function App() {
       <Router>
         <div>
         <Header/>
-            <Route path="/admin/signin" exact component={AdminSignIn} />
             <Route path="/articles/list" exact component={ArticlesList} />
             <Route path="/videos/list" exact component={VideosList} />
             <Route path="/videos/add" exact component={AddVideo} />
             <Route path="/articles/add" exact component={AddArticle} />
             <Route path="/articles/update/:id" exact component={UpdateArticle} />
             <Route path="/videos/update/:id" exact component={UpdateVideo} />
+            <Route path="/user/signup" exact component={SignUp} />
+            <Route path="/user/signin" exact component={Login} />
+            <PrivateRoute path="/doctor/all" exact component={AllDoctors} />
+            <PrivateRoute path="/doctor/add" exact component={DoctorAdd} />
+            <PrivateRoute path="/doctor/update/:id" exact component={DoctorUpdate} />
+            <Route path="/doctor/cards" exact component={AllDoctorsClient} />
+            <Route path="/doctor/cards/:id" exact component={SingleDoctor} />
             <Route path="/doctor/all" exact component={AllDoctors} />
             <Route path="/doctor/add" exact component={DoctorAdd} />
             <Route path="/doctor/update/:id" exact component={DoctorUpdate} />

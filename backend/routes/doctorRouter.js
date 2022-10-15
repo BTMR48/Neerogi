@@ -6,13 +6,15 @@ const {addDoctor,
        deleteDoctor
       } = require('../controllers/doctorController');
 
+const auth = require('../middleware/auth')
+
 const router = express.Router();
 
-router.post('/doctor', addDoctor);
-router.get('/doctors', getAllDoctors);
-router.get('/doctor/:id', getDoctor);
-router.put('/doctor/:id', updateDoctor);
-router.delete('/doctor/:id', deleteDoctor);
+router.post('/', addDoctor);
+router.get('/', getAllDoctors);
+router.get('/:id', getDoctor);
+router.put('/:id', updateDoctor);
+router.delete('/:id', deleteDoctor);
 
 
 module.exports = {
