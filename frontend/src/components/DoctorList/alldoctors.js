@@ -26,7 +26,7 @@ function AllDoctors () {
         //     setIsAdmin(false)
         //   }
           async function getDoctors() {
-            axios.get(`http://localhost:8070/doctors`).then((res) => {
+            axios.get(`http://localhost:8070/doctor`).then((res) => {
               setDoctors(res.data)  
             }).catch((error) => {
               alert("Failed to fetch Doctors")
@@ -68,7 +68,7 @@ function AllDoctors () {
 
     function handleSearch(event){
       const searchTerm = event.currentTarget.value
-      axios.get(`http://localhost:8070/doctors`).then((res) => {
+      axios.get(`http://localhost:8070/doctor`).then((res) => {
           filterContent(res.data, searchTerm.toLowerCase())
       }).catch((error)=>{
           alert("Failed to Search")
@@ -98,8 +98,8 @@ function AllDoctors () {
                 <div className="col-3">
                 </div>
 
-                {/* <div className="col-5">
-                    <div className="px-3 search" align="center">
+                <div className="col-5" >
+                    <div className="px-3 search" align="right">
                         <input
                             type="text"
                             name="search"
@@ -109,7 +109,7 @@ function AllDoctors () {
                             required
                         />
                     </div>
-                </div> */}
+                </div>
             </div>
             {/* {isAdmin &&  */}
                 <div >

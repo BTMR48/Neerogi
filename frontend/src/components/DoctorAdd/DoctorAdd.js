@@ -7,8 +7,8 @@ import Input from '@material-ui/core/Input';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import InputAdornment from "@material-ui/core/InputAdornment";
+// import IconButton from "@material-ui/core/IconButton";
+// import InputAdornment from "@material-ui/core/InputAdornment";
 
 import 'date-fns';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
@@ -64,7 +64,7 @@ function DoctorAdd(){
             formData.append("upload_preset", "doctor")
 
             try {
-                await axios.post("gs://test-e359c.appspot.com/doctor", formData).then((res) =>{
+                await axios.post("https://api.cloudinary.com/v1_1/tbrmy/image/upload", formData).then((res) =>{
                     imgUrl = res.data.secure_url
                 })
             } catch (error) {
@@ -104,11 +104,12 @@ function DoctorAdd(){
         <div className="container" align="center">
             <div className="row">
                 <div className="col-12">
-                    <div className="pb-2 px-3 d-flex flex-wrap align-items-center justify-content-between">
+                    <div >
                         <h2>Add New Doctor</h2>
                     </div>
                 </div>
             </div>
+            <br/>
             <form  onSubmit={add} className="doctorAdd" >
                 <div className="row"> 
                     

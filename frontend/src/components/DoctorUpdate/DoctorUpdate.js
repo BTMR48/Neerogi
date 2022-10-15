@@ -3,8 +3,8 @@ import { useHistory } from 'react-router-dom';
 import Button from "@material-ui/core/Button";
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import OutlinedInput from "@material-ui/core/OutlinedInput";
-import TextField from '@material-ui/core/TextField';
-import InputAdornment from "@material-ui/core/InputAdornment";
+// import TextField from '@material-ui/core/TextField';
+// import InputAdornment from "@material-ui/core/InputAdornment";
 import Chip from '@material-ui/core/Chip';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
@@ -96,9 +96,7 @@ function DoctorUpdate(props) {
                 alert("Updated Successfully")
                 history.push(`/doctor/all`)
         } catch (error) {
-            {
-                alert("Updating Failed")
-            }
+            alert("Updating Failed")
         }    
     }
 
@@ -114,11 +112,12 @@ function DoctorUpdate(props) {
         <div className="container" align="center">
             <div className="row">
                 <div className="col-12">
-                    <div className="pb-2 px-3 d-flex flex-wrap align-items-center justify-content-between">
+                    <div >
                         <h2>Update Doctor</h2>
                     </div>
                 </div>
             </div>
+            <br/>
             <form  onSubmit={Update} encType="multipart/form-data" className="doctorAdd" >
                 <div className="row"> 
                     
