@@ -7,24 +7,19 @@ import HomeIcon from '@material-ui/icons/Home';
 import PersonIcon from '@material-ui/icons/Person';
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import AssignmentIcon from '@material-ui/icons/Assignment';
-import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
-import FeedbackIcon from '@material-ui/icons/Feedback';
-import Badge from '@material-ui/core/Badge';
 import Avatar from '@material-ui/core/Avatar';
 import onClickOutside from "react-onclickoutside";
 import ForumIcon from '@mui/icons-material/Forum'
 import { blue } from '@material-ui/core/colors';
 import { Button } from '@material-ui/core';
-import axios from 'axios';
 import './Header.css';
 import './Sidebar.css';
 
 function Header() {
     const [isSignedIn, setIsSignedIn] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
-    const [isClient, setIsClient] = useState(false);
+    const [isUser, setIsUser] = useState(false);
     const [user, setUser] = useState("");
     const [URL, setURL] = useState("/patient");
     const history = useHistory();
@@ -56,25 +51,25 @@ function Header() {
             icon: <VideoLibraryIcon/>,
             cName: 'nav-text'
           },
-          isClient &&{
+          isUser &&{
             title: 'Articles',
             path: `/articles/list`,
             icon: <AssignmentIcon/>,
             cName: 'nav-text'
           },
-          isClient &&{
+          isUser &&{
               title: 'Videos',
               path: `/videos/list`,
               icon: <VideoLibraryIcon/>,
               cName: 'nav-text'
             },
-        (isClient || isAdmin) &&{
+        (isUser || isAdmin) &&{
             title: 'Requests',
             path: `/request/allrequest/`,
             icon: <EventAvailableIcon/>,
             cName: 'nav-text'
         },
-        (isClient || isAdmin) &&{
+        (isUser || isAdmin) &&{
             title: 'Topic Evaluation',
             path: `/topiceval/view`,
             icon: <EventAvailableIcon/>,
@@ -86,7 +81,7 @@ function Header() {
           icon: <AssignmentIcon/>,
           cName: 'nav-text'
         },
-        (isClient || isAdmin) &&{
+        (isUser || isAdmin) &&{
             title: 'Chat',
             path: `/student/chat/${user._id}`,
             icon: <ForumIcon />,
@@ -102,7 +97,7 @@ function Header() {
 
     useEffect(() => {
         //check whether user has signed in
-        if(localStorage.getItem("clientAuthToken") || localStorage.getItem("adminAuthToken")){
+        if(localStorage.getItem("userAuthToken") || localStorage.getItem("adminAuthToken")){
             setIsSignedIn(true)
 
             //get user data
@@ -114,9 +109,9 @@ function Header() {
                 setURL(`/admin`)
                 setIsAdmin(true)
             }
-            if(localStorage.getItem("clientAuthToken")){
-                setURL(`/client`)
-                setIsClient(true)
+            if(localStorage.getItem("userAuthToken")){
+                setURL(`/user`)
+                setIsUser(true)
             }
 
         }else{
@@ -134,7 +129,7 @@ function Header() {
     }
 
     function signup() {
-        history.push('/client/signup')
+        history.push('/user/signup')
     }
     
     //logout

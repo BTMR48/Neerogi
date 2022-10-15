@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const config = require('./config');
 
 const doctorRoutes = require('./routes/doctorrouter');
-//const userRoutes = require('./routes/userRouter')
+const userRoutes = require('./routes/userRouter')
 const articlerouter = require('./routes/ArticleRouter');
 const videorouter = require('./routes/VideoRouter');
 const QuestionRouter = require("./routes/questionrouter.js");

@@ -16,17 +16,19 @@ function ArticleItem() {
   const [articles, setArticles] = useState([])
   const history = useHistory()
   const [user, setUser] = useState("");
-  const [isAdmin,setIsAdmin]= useState(false)
+  const [isAdmin,setIsAdmin]= useState(false);
+  const [isUser,setIsUser]= useState(false)
 
   useEffect(() => { 
-    // localStorage.setItem("user", "admin")
-    // localStorage.setItem("adminAuthToken", "Admin")
     if(localStorage.getItem("user")){
       setUser(JSON.parse(localStorage.getItem('user')))
     }
 
     if(localStorage.getItem("adminAuthToken")){
       setIsAdmin(true)
+    }
+    if(localStorage.getItem("userAuthToken")){
+      setIsUser(true)
     }
     
     async function getAllArticles() {
@@ -78,19 +80,29 @@ function update(id){
    history.push(`/articles/add`)
   }
 
+  const myStyle={
+    
+    backgroundImage: 
+    "url('/images/backgroundimg.jpg')",
+     height:'100vh',
+     marginBottom:'-120px',
+    // fontSize:'50px',
+    backgroundSize: 'cover',
+    // backgroundRepeat: 'no-repeat',
+};
+const car = () => {
     return (
-        <div className="container">
-          <img  src="images/backgroundimg.jpg" />
+        <div className="container" style={{paddingTop:35}}>
           <div className="row">
-              <div className="col-4">
+              <div className="col-4" style={{paddingTop:55}}>
                 <div className="pb-2 px-3 d-flex flex-wrap align-items-center justify-content-between">
-                    <h2>Articles</h2>
+                    <h2 style={{textAlign: "center"}}>Articles</h2>
                 </div>
               </div>
               <div className="col-3">
               </div>
               <div className="col-5">
-                <div className="px-3 search" align="right">
+                <div className="px-3 search" >
                   <input 
                     type="text" 
                     name="search" 
@@ -104,11 +116,11 @@ function update(id){
           </div>
         </div>
         <div className="productGrid"  > 
-        {isAdmin === true ?
+        {isAdmin &&
             <Button  className="mx-2 productBtn" style={{backgroundColor:blue[400],color:'white'}} onClick={()=>addArticle()}>
             Add Article <AddIcon/>
             </Button>  
-          :<div></div>}
+        }
           {articles.map((Article,key)=>( 
                 <div key={key}> 
                     <div className="productCard" >
@@ -119,7 +131,7 @@ function update(id){
                             <h7>{Article.heading}</h7>
                             <h6>{Article.author}</h6>
                             <h6>{Article.date}</h6>
-                            {isAdmin === true ?
+                            {isAdmin &&
                             <div align="center">
                               <span> 
                                   <IconButton onClick={() => update(Article.id)}>
@@ -132,14 +144,28 @@ function update(id){
                                     </IconButton>
                               </span>  
                             </div>
-                            : <div align="center"></div>}
+                            }
                         </div>
                     </div>
                 </div>
           ))} 
         </div>
       </div>
-    )      
+
+
+    ) 
+    }
+    return(
+      <div>
+        {isAdmin === false ?
+        <div style={myStyle}>
+        {car()}
+        </div>
+        :<div>
+        {car()}
+        </div>}
+      </div>
+    )
 }
 
 export default ArticleItem
