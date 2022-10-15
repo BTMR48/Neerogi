@@ -17,7 +17,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
-
 app.use('/doctor', doctorRoutes.routes);
 app.use('/user', userRoutes.routes);
 app.use("/article",articlerouter);
