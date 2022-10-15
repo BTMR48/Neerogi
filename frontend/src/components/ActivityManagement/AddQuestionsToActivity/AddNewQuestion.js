@@ -32,7 +32,7 @@ function AddNewQuestion(){
     const [selectedFile3, setSelectedFile3] = useState();
     const [fileInputState3, setFileInputState3] = useState('');
 
-    //handling the pdf uploading
+    //handling the image uploading
     const handleFileInputChange = (event) => {
         const file = event.target.files[0];
         previewFile(file);
@@ -61,7 +61,7 @@ function AddNewQuestion(){
         setFileInputState3(event.target.value);
     };
     
-    //display a preview of uploaded pdf
+    //display a preview of uploaded image
     const previewFile = (file) => {
         const reader = new FileReader();
         reader.readAsDataURL(file)

@@ -36,13 +36,14 @@ function Login() {
             if(data.result.role === 0){
                 //setting the patient authorization token
                 localStorage.setItem("userAuthToken", `User ${data.token}`)
+                history.push('/ClientHome')
             }else{
                 localStorage.setItem("adminAuthToken", `Admin ${data.token}`)
+                history.push('/AdminHome')
             }
             //setting user
             localStorage.setItem("user", JSON.stringify(data.result))
             
-            history.push('/')
         } catch (error) {
             if(error.response.status === 404){
                 alert("Invalid Email")

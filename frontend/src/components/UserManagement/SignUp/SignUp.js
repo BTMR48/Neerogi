@@ -88,7 +88,7 @@ function SignUp() {
             try {
                 await axios.post("http://localhost:8070/user/signup", newUser , config)
                     alert("Registration Successful")
-                    history.push('/user/signin')
+                    history.push('/')
             } catch (error) {
                 if(error.response.status === 409){
                     alert(error.response.data.message)
@@ -227,7 +227,7 @@ function SignUp() {
                             </div>
                         </div>
                         
-                        <p>දැනටමත් ගිණුමක් තිබේද? <Link to="/user/signin">ලොග් වෙන්න</Link></p>
+                        <p>දැනටමත් ගිණුමක් තිබේද? <Link to="/">ලොග් වෙන්න</Link></p>
                     </form>             
                 </div>                   
             </div>
