@@ -13,7 +13,6 @@ import AddArticle from './components/Articles/AddArticles/AddArticle';
 import UpdateArticle from './components/Articles/UpdateArticle/UpdateArticle';
 import UpdateVideo from './components/Videos/UpdateVideo/UpdateVideo';
 import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
 import AllDoctors from './components/DoctorList/alldoctors'
 import DoctorAdd from './components/DoctorAdd/DoctorAdd'
 import DoctorUpdate from './components/DoctorUpdate/DoctorUpdate'
@@ -45,7 +44,7 @@ function App() {
             <Route path="/articles/update/:id" exact component={UpdateArticle} />
             <Route path="/videos/update/:id" exact component={UpdateVideo} />
             <Route path="/user/signup" exact component={SignUp} />
-            <Route path="/user/signin" exact component={Login} />
+            <Route path="/" exact component={Login} />
             <PrivateRoute path="/doctor/all" exact component={AllDoctors} />
             <PrivateRoute path="/doctor/add" exact component={DoctorAdd} />
             <PrivateRoute path="/doctor/update/:id" exact component={DoctorUpdate} />
