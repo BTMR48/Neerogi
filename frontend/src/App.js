@@ -17,7 +17,7 @@ import AddNewActivity from './components/ActivityManagement/AddNewActivity/addNe
 import AddActivity from './components/ActivityManagement/AddNewActivity/AddActivity';
 import AddNewQuestion from './components/ActivityManagement/AddQuestionsToActivity/AddNewQuestion';
 import ViewAllQuestions from './components/ActivityManagement/ViewAllQuestions/ViewAllQuestion';
-import UpdateQuestion from './components/ActivityManagement/UpdateQuestions/UpdateQuesttion';
+import UpdateNewQuestion from './components/ActivityManagement/UpdateQuestions/UpdateQuesttion';
 import AllDoctors from './components/DoctorList/alldoctors'
 import DoctorAdd from './components/DoctorAdd/DoctorAdd'
 import DoctorUpdate from './components/DoctorUpdate/DoctorUpdate'
@@ -74,7 +74,7 @@ function App() {
             <Route path="/admin/addActivity" exact component = {AddActivity}/>
             <Route path="/admin/addNewQuestion" exact component = {AddNewQuestion} />
             <Route path='/admin/ViewAllQuestions' exact component={ViewAllQuestions} />
-            <Route path='/admin/ViewAllQuestions/updateQuestion/:id' exact component={UpdateQuestion} />
+            <Route path='/admin/ViewAllQuestions/updateQuestion/:id' exact component={UpdateNewQuestion} />
          <Footer/>
         </div>
       </Router>

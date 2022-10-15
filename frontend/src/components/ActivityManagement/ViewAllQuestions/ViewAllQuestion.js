@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import { useHistory } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
 import './ViewAllQuestion.css'
@@ -13,6 +13,7 @@ import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
 import AudioPlayer from './AudioPlayer'
 import ReactAudioPlayer from 'react-audio-player';
+import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 
 function ViewAllQuestions(){
     const [isAdmin,setIsAdmin]= useState(false)
@@ -89,9 +90,12 @@ function ViewAllQuestions(){
       function next(){
         history.push(`/evolution/addProgress`)
       }
-
-      function play(){
+      
+      function reprotGenerate(){
         history.push(`/evolution/addProgress`)
+      }
+      function voice(){
+        history.push(`/${voiceRecord}`)
       }
 
     return(
@@ -167,18 +171,27 @@ function ViewAllQuestions(){
                                   <br></br>
                                   <br></br>
 
+                                  {/* {Question.voiceRecord  === ""?
+                                  <ReactAudioPlayer src="my_audio_file.ogg" autoPlay controls />
+                                  :
+                                  <ReactAudioPlayer ref={(voiceRecord) => { this.rap = voiceRecord; }}/>
+                                  } */}
+
                                   {/* <div>
                                       <ReactAudioPlayer ref="audio_tag" src="./assets/sound.ogg" controls autoPlay/>
                                   </div> */}
-                                  {Question.voiceRecord  === ""?
-                                  <ReactAudioPlayer src="my_audio_file.ogg" autoPlay controls />
+                                  {/* {Question.voiceRecord  === ""?
+                                  <ReactAudioPlayer src="./audio.ogg" autoPlay controls />
                                   :
                                   <ReactAudioPlayer src={`${Question.voiceRecord}`}/>
-                                  }
-                                  
+                                  } */}
+
+                                  {/* <img src="/images/avatar.jpg" className="questionImgHeight" alt="question" onClick={}/> */}
+                                  <div onClick={() => voice(Question.voiceRecord)}><h6>{Question.voiceRecord}</h6></div>
                               </div>
-                              <ReactAudioPlayer src="./audio.ogg" autoPlay controls />
-                              {/* {isAdmin &&  */}
+                              <ReactAudioPlayer src="audio/teacher.ogg" autoPlay controls />
+                              {/* <ReactAudioPlayer ref={(element) => { this.rap = element; }}/> */}
+                              {isAdmin && 
                                 <div align="right">
                                   <div style={{verticalAlign:'middle'}}>
                                     <IconButton onClick={() => deleteQuestion(Question.id)}>
@@ -187,10 +200,11 @@ function ViewAllQuestions(){
                                     <span> 
                                       <button className="mx-2 progressBtn" style={{backgroundColor:red[400]}} onClick={()=>update(Question.id)}>
                                           Update <EditIcon/>
-                                      </button>                                  </span>       
+                                      </button>                                  
+                                    </span>       
                                   </div>
                                 </div>
-                              {/* } */}
+                              }
                         </div>
                     </div>
                 </div>
@@ -201,6 +215,11 @@ function ViewAllQuestions(){
           <button className="nextBtn" style={{backgroundColor:blue[400]}} onClick={()=>next()}> NEXT</button>
           </span> 
         </div>
+        {/* {isAdmin &&  */}
+            <Button  className="mx-2 progressBtn" style={{backgroundColor:blue[400],color:'white'}} onClick={()=>reprotGenerate()}>
+            Download Report <CloudDownloadIcon/>
+            </Button>  
+          {/* } */}
       </div>
     )
 }
