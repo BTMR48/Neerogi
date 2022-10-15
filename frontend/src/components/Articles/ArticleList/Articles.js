@@ -15,8 +15,19 @@ function ArticleItem() {
 
   const [articles, setArticles] = useState([])
   const history = useHistory()
+  const [user, setUser] = useState("");
+  const [isAdmin,setIsAdmin]= useState(false)
 
   useEffect(() => { 
+    // localStorage.setItem("user", "admin")
+    // localStorage.setItem("adminAuthToken", "Admin")
+    if(localStorage.getItem("user")){
+      setUser(JSON.parse(localStorage.getItem('user')))
+    }
+
+    if(localStorage.getItem("adminAuthToken")){
+      setIsAdmin(true)
+    }
     
     async function getAllArticles() {
       axios.get(`http://localhost:8070/article`).then((res) => {
@@ -60,15 +71,16 @@ function ArticleItem() {
 }
 
 function update(id){
-    history.push(`/admin/articles/update/${id}`)
+    history.push(`/articles/update/${id}`)
 }
   
   function addArticle(){
-   history.push(`/admin/articles/add`)
+   history.push(`/articles/add`)
   }
 
     return (
         <div className="container">
+          <img  src="images/backgroundimg.jpg" />
           <div className="row">
               <div className="col-4">
                 <div className="pb-2 px-3 d-flex flex-wrap align-items-center justify-content-between">
@@ -92,26 +104,23 @@ function update(id){
           </div>
         </div>
         <div className="productGrid"  > 
+        {isAdmin === true ?
             <Button  className="mx-2 productBtn" style={{backgroundColor:blue[400],color:'white'}} onClick={()=>addArticle()}>
             Add Article <AddIcon/>
             </Button>  
-          
+          :<div></div>}
           {articles.map((Article,key)=>( 
                 <div key={key}> 
                     <div className="productCard" >
                         <div className="imgBx">
-                            <img  src={`${Article.imgUrl}`} alt="Article" className="itemProduct"/>
+                            <img  src={`${Article.imgUrl}`} alt="Article" className="itemProduct" onClick={() => view(Article.pdfUrl)}/>
                         </div>
                         <div className="p-3">
                             <h7>{Article.heading}</h7>
                             <h6>{Article.author}</h6>
                             <h6>{Article.date}</h6>
+                            {isAdmin === true ?
                             <div align="center">
-                              <span> 
-                                  <IconButton onClick={() => view(Article.pdfUrl)}>
-                                        <VisibilityIcon style={{ color: "#008B8B" }} ></VisibilityIcon>
-                                    </IconButton>
-                              </span>
                               <span> 
                                   <IconButton onClick={() => update(Article.id)}>
                                         <EditIcon style={{ color: "#008B8B" }} ></EditIcon>
@@ -123,6 +132,7 @@ function update(id){
                                     </IconButton>
                               </span>  
                             </div>
+                            : <div align="center"></div>}
                         </div>
                     </div>
                 </div>
