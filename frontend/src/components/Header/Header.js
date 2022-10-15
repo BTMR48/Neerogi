@@ -162,7 +162,7 @@ function Header() {
                             } 
                         </ul>
                         <div className="header-title">
-                            <h3 onClick={home}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLIIT&nbsp;Research&nbsp;Management Tool </h3>
+                            <h3 onClick={home}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;නිරෝගී&nbsp;&nbsp; </h3>
                         </div>
                         <ul className="mx-3">
                             {isSignedIn ?
