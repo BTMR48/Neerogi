@@ -60,7 +60,7 @@ function VideoItem() {
 }
 
 function update(id){
-    history.push(`/admin/videos/update/${id}`)
+    history.push(`/videos/update/${id}`)
 }
   
   function addVideo(){

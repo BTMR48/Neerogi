@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { useHistory, useLocation,Link } from 'react-router-dom';
 import { IconButton } from '@material-ui/core';
 import DehazeIcon from '@material-ui/icons/Dehaze';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import HomeIcon from '@material-ui/icons/Home';
 import PersonIcon from '@material-ui/icons/Person';
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
@@ -24,10 +24,7 @@ import './Sidebar.css';
 function Header() {
     const [isSignedIn, setIsSignedIn] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
-    const [isStudent, setIsStudent] = useState(false);
-    const [isSupervisor, setIsSupervisor] = useState(false);
-    const [isCosupervisor, setIsCosupervisor] = useState(false);
-    const [isPanelmember, setIsPanelmember] = useState(false);
+    const [isClient, setIsClient] = useState(false);
     const [user, setUser] = useState("");
     const [URL, setURL] = useState("/patient");
     const history = useHistory();
@@ -37,7 +34,7 @@ function Header() {
     const SidebarItem = [
         {
           title: 'Home',
-          path: `/home`,
+          path: `/AdminHome`,
           icon: <HomeIcon/>,
           cName: 'nav-text'
         },
@@ -47,19 +44,37 @@ function Header() {
           icon: <PersonIcon/>,
           cName: 'nav-text'
         },
-        isStudent &&{
-          title: 'Topic Registration',
-          path: `/supervisor/ViewSupervisor`,
-          icon: <EventAvailableIcon/>,
+        isAdmin &&{
+          title: 'Article management',
+          path: `/articles/list`,
+          icon: <AssignmentIcon/>,
           cName: 'nav-text'
         },
-        (isStudent || isSupervisor || isCosupervisor) &&{
+        isAdmin &&{
+            title: 'Video management',
+            path: `/videos/list`,
+            icon: <VideoLibraryIcon/>,
+            cName: 'nav-text'
+          },
+          isClient &&{
+            title: 'Articles',
+            path: `/articles/list`,
+            icon: <AssignmentIcon/>,
+            cName: 'nav-text'
+          },
+          isClient &&{
+              title: 'Videos',
+              path: `/videos/list`,
+              icon: <VideoLibraryIcon/>,
+              cName: 'nav-text'
+            },
+        (isClient || isAdmin) &&{
             title: 'Requests',
             path: `/request/allrequest/`,
             icon: <EventAvailableIcon/>,
             cName: 'nav-text'
         },
-        (isStudent || isPanelmember) &&{
+        (isClient || isAdmin) &&{
             title: 'Topic Evaluation',
             path: `/topiceval/view`,
             icon: <EventAvailableIcon/>,
@@ -71,7 +86,7 @@ function Header() {
           icon: <AssignmentIcon/>,
           cName: 'nav-text'
         },
-        (isStudent || isSupervisor || isCosupervisor) &&{
+        (isClient || isAdmin) &&{
             title: 'Chat',
             path: `/student/chat/${user._id}`,
             icon: <ForumIcon />,
@@ -87,7 +102,7 @@ function Header() {
 
     useEffect(() => {
         //check whether user has signed in
-        if(localStorage.getItem("studentAuthToken") || localStorage.getItem("supervisorAuthToken") || localStorage.getItem("adminAuthToken") || localStorage.getItem("cosupervisorAuthToken") || localStorage.getItem("panelmemberAuthToken")){
+        if(localStorage.getItem("clientAuthToken") || localStorage.getItem("adminAuthToken")){
             setIsSignedIn(true)
 
             //get user data
@@ -96,25 +111,12 @@ function Header() {
             }
                     
             if(localStorage.getItem("adminAuthToken")){
-                // setURL(`/admin`)
+                setURL(`/admin`)
                 setIsAdmin(true)
             }
-            if(localStorage.getItem("studentAuthToken")){
-                setURL(`/student`)
-                setIsStudent(true)
-            }
-
-            if(localStorage.getItem("supervisorAuthToken")){
-                setURL(`/supervisor`)
-                setIsSupervisor(true)
-            }
-            if(localStorage.getItem("cosupervisorAuthToken")){
-                setURL(`/cosupervisor`)
-                setIsCosupervisor(true)
-            }
-            if(localStorage.getItem("panelmemberAuthToken")){
-                setURL(`/panelmember`)
-                setIsPanelmember(true)
+            if(localStorage.getItem("clientAuthToken")){
+                setURL(`/client`)
+                setIsClient(true)
             }
 
         }else{
@@ -132,7 +134,7 @@ function Header() {
     }
 
     function signup() {
-        history.push('/student/signup')
+        history.push('/client/signup')
     }
     
     //logout
@@ -146,7 +148,7 @@ function Header() {
     Header.handleClickOutside = () => setSidebar(false);
 
     function home(){
-        history.push('/')
+        history.push('/AdminHome')
     }
     
     return (
@@ -192,7 +194,7 @@ function Header() {
                             <li className='mb-4 mt-3' align="center">
                                 {/* <img src="/images/Logo.png" width="150px"  height="90px" alt="logo"/> */}
                                 {/* <img src="/images/sliit-web-logo.png" width="150px" alt="logo"/> */}
-                                <img src="/images/SLIIT_Logo.png" width="100px" height="120px" alt="logo"/>
+                                <img src="/images/Logo.png" width="100px" height="120px" alt="logo"/>
                             </li>
                             {SidebarItem.map((item, index) => {
                             return (

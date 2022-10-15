@@ -1,8 +1,6 @@
 import React,{useEffect, useState} from 'react'
 import { useHistory,useLocation } from 'react-router';
 import './AdminHome.css'
-import axios from 'axios'
-import {white } from '@material-ui/core/colors';
 
 
 function InAnswers() {
@@ -23,7 +21,7 @@ function userDetails(){
           <div className="row">
               <div className="col-4">
                 <div className="pb-2 px-3 d-flex flex-wrap align-items-center justify-content-between">
-                    <h2>Admin Home </h2>
+                    <h2>Parent Learning</h2>
                 </div>
               </div>
               <div className="col-3">
@@ -43,7 +41,7 @@ function userDetails(){
                        
                         <div className="pp">
                             <div align="center">
-                                <h2>Details Question</h2>
+                                <h2>Articles</h2>
                             
                             </div>   
                         </div>
@@ -57,7 +55,7 @@ function userDetails(){
                        
                         <div className="pp">
                             <div align="center">
-                                <h2>ddd</h2>
+                                <h2>Videos</h2>
                             
                             </div>   
                         </div>
@@ -74,26 +72,43 @@ function userDetails(){
                             
                             <div className="pp">
                                 <div align="center">
-                                    <h2>dd</h2>
-                                
+                                    <h2>Feedback</h2>
+                                    <form onSubmit={add} className="addProduct">
+                <div className="row">
+                    <div className="col-8">
+                        <div className="row">
+                            <div className="col-md-8 mb-4">
+                                <div className="form-name">
+                                    <OutlinedInput
+                                        type="text" id="name" placeholder="Video heading" 
+                                        required fullWidth
+                                        onChange={(e)=>setName(e.target.value)}
+                                        inputProps={{style: {padding: 12}}} 
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                    <div className="col-4 d-flex justify-content-center">
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="form-group">
+                            <input className="form-submit-btn" type="submit" value="Add Video" />
+                        </div>
+                    </div>
+                </div>
+            </form>  
                                 </div>   
                             </div>
                                 
                         </div>
-                </div>  
-            <div className="progressCards" >
-                    <div onClick={userDetails}>
-                       
-                        <div className="pp">
-                            <div align="center">
-                                <h2>User Details</h2>
-                            
-                            </div>   
-                        </div>
-
-                    </div>        
-              
-                    </div>             
+                </div>         
                      
             </div>
                 
