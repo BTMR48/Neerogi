@@ -15,6 +15,8 @@ function VideoItem() {
 
   const [videos, setVideos] = useState([])
   const history = useHistory()
+  const [isAdmin,setIsAdmin]= useState(false);
+  const [isUser,setIsUser]= useState(false)
 
   useEffect(() => { 
     
@@ -67,68 +69,111 @@ function update(id){
    history.push(`/videos/add`)
   }
 
+  const myStyle={
+    
+    backgroundImage: 
+    "url('/images/backgroundimg.jpg')",
+     height:'100vh',
+     marginBottom:'-120px',
+    // fontSize:'50px',
+    backgroundSize: 'cover',
+    // backgroundRepeat: 'no-repeat',
+};
+
+  const displayContent = () => {
     return (
-        <div className="container">
-          <div className="row">
-              <div className="col-4">
-                <div className="pb-2 px-3 d-flex flex-wrap align-items-center justify-content-between">
-                    <h2>Videos</h2>
-                </div>
+      <div className="container" style={{paddingTop:35,paddingLeft:65}}>
+        <div className="row" style={{textAlign: "center"}}>
+        {isUser &&
+            <div style={{padding:15,textTransform: "uppercase",color: "#4CAF50"}}>
+              <div>
+                  <h2>නරඹන්න</h2>
               </div>
-              <div className="col-3">
-              </div>
-              <div className="col-5">
-                <div className="px-3 search" align="right">
-                  <input 
-                    type="text" 
-                    name="search" 
-                    id="search"
-                    placeholder="Search" 
-                    onChange={handleSearchAll} 
-                    required 
-                  />
-                </div>
-               
-          </div>
+            </div>
+        }
         </div>
-        <div className="productGrid"  > 
-            <Button  className="mx-2 productBtn" style={{backgroundColor:blue[400],color:'white'}} onClick={()=>addVideo()}>
-            Add Video <AddIcon/>
-            </Button>  
-          
-          {videos.map((Video,key)=>( 
-                <div key={key}> 
-                    <div className="productCard" >
-                        <div className="imgBx">
-                            <img  src={`${Video.imgUrl}`} alt="Video" className="itemProduct"/>
-                        </div>
-                        <div className="p-3">
-                            <h7>{Video.heading}</h7>{console.log(Video)}
-                            <h6>{Video.date}</h6>
-                            <div align="center">
-                              <span> 
-                                  <IconButton onClick={() => view(Video.videoUrl)}>
-                                        <VisibilityIcon style={{ color: "#008B8B" }} ></VisibilityIcon>
-                                    </IconButton>
-                              </span>
-                              <span> 
-                                  <IconButton onClick={() => update(Video.id)}>
-                                        <EditIcon style={{ color: "#008B8B" }} ></EditIcon>
-                                    </IconButton>
-                              </span> 
-                              <span> 
-                                  <IconButton onClick={() => deleteVideo(Video.id)}>
-                                        <DeleteIcon style={{ color: "#008B8B" }} ></DeleteIcon>
-                                    </IconButton>
-                              </span>  
-                            </div>
-                        </div>
-                    </div>
-                </div>
-          ))} 
+        <div className="row">
+              <div className="col-7">
+              </div>
+            <div className="col-5" style={{padding:25,paddingBottom:55}}>
+            {isUser ?
+              <div className="px-3 search">
+                <input 
+                  type="text" 
+                  name="search" 
+                  id="search"
+                  placeholder="සොයන්න" 
+                  onChange={handleSearchAll} 
+                  required 
+                />
+              </div>
+             : <div className="px-3 search" >
+             <input 
+               type="text" 
+               name="search" 
+               id="search"
+               placeholder="Search" 
+               onChange={handleSearchAll} 
+               required 
+             />
+             </div>}
         </div>
       </div>
-    )      
+      <div className="productGrid"  >
+      {isAdmin && 
+          <Button  className="mx-2 productBtn" style={{backgroundColor:blue[400],color:'white'}} onClick={()=>addVideo()}>
+          Add Video <AddIcon/>
+          </Button>  
+        }
+        {videos.map((Video,key)=>( 
+              <div key={key}> 
+                  <div className="productCard" >
+                      <div className="imgBx">
+                          <img  src={`${Video.imgUrl}`} alt="Video" className="itemProduct"/>
+                      </div>
+                      <div className="p-3">
+                          <h7>{Video.heading}</h7>
+                          <h6>{Video.date}</h6>
+                          {isAdmin &&
+                          <div align="center">
+                            <span> 
+                                <IconButton onClick={() => view(Video.videoUrl)}>
+                                      <VisibilityIcon style={{ color: "#008B8B" }} ></VisibilityIcon>
+                                  </IconButton>
+                            </span>
+                            <span> 
+                                <IconButton onClick={() => update(Video.id)}>
+                                      <EditIcon style={{ color: "#008B8B" }} ></EditIcon>
+                                  </IconButton>
+                            </span> 
+                            <span> 
+                                <IconButton onClick={() => deleteVideo(Video.id)}>
+                                      <DeleteIcon style={{ color: "#008B8B" }} ></DeleteIcon>
+                                  </IconButton>
+                            </span>  
+                          </div>
+                        }
+                      </div>
+                  </div>
+              </div>
+        ))} 
+      </div>
+    </div>
+  )      
+  }
+
+  return(
+    <div>
+      {isAdmin === false ?
+      <div style={myStyle}>
+      {displayContent()}
+      </div>
+      :<div>
+      {displayContent()}
+      </div>}
+    </div>
+  )
+   
 }
 
 export default VideoItem

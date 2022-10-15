@@ -17,7 +17,7 @@ function Answersforsuti(){
 const myStyle={
     backgroundImage: 
     "url('/images/backgroundimg.jpg')",
-     height:'100vh',
+     height:'120vh',
      marginBottom:'-120px',
     // fontSize:'50px',
     backgroundSize: 'cover',
@@ -25,21 +25,13 @@ const myStyle={
 };
     return (
         <div style={myStyle}>
-        <div className="container">
+        <div className="container" style={{paddingTop:35,paddingLeft:155,marginBottom:100}}>
            
-          <div className="row">
-              <div className="col-4">
-                <div className="pb-2 px-3 d-flex flex-wrap align-items-center justify-content-between">
-                    <h2>Client Home </h2>
-                </div>
-              </div>
-              <div className="col-3">
-              </div>
-        </div>
+
     
     
      {/* </div> */}
-    <div className="row">
+    <div className="row" style={{paddingBottom:35}}>
             {/* <h4 className="mb-4"> Client Home  Page</h4> */}
            
             <br></br>
@@ -86,9 +78,8 @@ const myStyle={
                                 
                         </div>
                 </div>
-            
-            <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-            <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+            </div>
+                <div className="row" style={{paddingBottom:35}}>
                 <div className="col-md-4">
 
                 <div className="progressCards" >
@@ -124,7 +115,9 @@ const myStyle={
                             </div>
                                 
                         </div>
+                        
             </div>
+
                 
     </div>
     </div>
