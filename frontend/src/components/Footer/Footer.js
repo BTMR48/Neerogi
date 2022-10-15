@@ -15,7 +15,7 @@ function Footer() {
     //     history.push("https://www.sliit.lk/service-feedback-form/")
     // }
     return (
-        <footer className="px-5">
+        <footer className="px-5" style={{paddingTop:35,marginTop:35}}>
             <div className="">
                 <div className="row">
                     <div className="col-xl-1" align="center">
@@ -25,30 +25,27 @@ function Footer() {
                     <div className="col-xl-3"style={{ paddingLeft: 70 }}>
                         <br/>
                         <p>
-                            This website is focused on managing Research Projects of 4th Year undergradutes 
-                            at Sri Lanka Institute of Information Technology    
+                        What Is Autism?
+                        </p>
+                        <p>
+                        About Us
+                        </p>
+                        <p>
+                        News
                         </p>
                     </div>
-                    <div className="col-xl-2" align="center">
-                        <h3>Links</h3>
+                    <div className="col-xl-4" align="center">
+                        <h3>Need Personalized Support?</h3>
                         <ul className="list-group">
-                            <li><Link to="/" style={{ color: '#FFF' }}>Home</Link></li>
-                            <li><Link to=""  style={{ color: '#FFF' }}>About Us</Link></li>
-                            <li><Link to=""  style={{ color: '#FFF' }}>Contacts</Link></li>
-                            <li><Link to="/supervisor/signin"  style={{ color: '#FFF' }}>Supervisors</Link></li>
-                            <li><Link to="/admin/signin"  style={{ color: '#FFF' }}>Admin</Link></li>
+                        <p>
+                        Our Autism Response Team (ART) is specially trained to connect people with autism, their families, and caretakers to information, tools, and resources.
+                        </p>
                         </ul>
                     </div>
-                    <div className="col-xl-3" >
-                        <h3>&nbsp;Reach Us On </h3>
-                        <br/>
-                        <p><LocationOnIcon fontSize="small"/>&nbsp; SLIIT Malabe Campus, New Kandy Rd, Malabe 10115</p>
-                        <p><EmailIcon fontSize="small"/>&nbsp; info@sliit.lk</p>
-                        <p><PhoneIcon fontSize="small"/>&nbsp;0117 544 801</p>
-                    </div>
+                    
                     <div className="col-xl-3"align="center">
                         <br></br>
-                        <h5>   Provide Feedback to SLIIT</h5>    
+                        <h5>   Provide Feedback to Neerogi </h5>    
                         <br></br>
                         <Button variant="contained" style={{backgroundColor:blue[500],color:'white'}} endIcon={<RateReviewIcon/>}
                                 href="https://www.sliit.lk/service-feedback-form/" >
@@ -63,7 +60,7 @@ function Footer() {
                     </div>
                 </div>
                 <div className="col-xl-12 text-center "> 
-                    <p className ="mb-0"> SLIIT UNI © 2021 - All Rights Reserved</p>
+                    <p className ="mb-0"> Neerogi © 2021 - All Rights Reserved</p>
                 </div>
             </div>
         </footer>
