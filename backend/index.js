@@ -18,8 +18,7 @@ app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
 
-
-app.use('/', doctorRoutes.routes);
+app.use('/doctor', doctorRoutes.routes);
 app.use('/user', userRoutes.routes);
 app.use("/article",articlerouter);
 app.use("/video",videorouter);

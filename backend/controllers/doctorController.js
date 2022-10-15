@@ -4,15 +4,18 @@ const firebase = require('../db');
 const Doctor = require('../models/doctor');
 const firestore = firebase.firestore();
 
-
+//add new doctor 
 const addDoctor = async (req, res, next) => {
     try {
+        var emailCheck = false;
         const data = req.body;
         const email = req.body.email;
-        const doctors = await firestore.collection('doctors').doc(email);
-        const dataCheck = await doctors.get();
-
-        if(dataCheck) {
+        const doctors = await firestore.collection('doctors');
+        const dataCheck = await doctors.where('email', '==', email).get();
+        dataCheck.forEach(doc => {
+            emailCheck = true;
+          });
+        if(emailCheck) {
             res.status(409).send('Doctor with this email already exists');
         }else {    
             await firestore.collection('doctors').doc().set(data);
@@ -23,6 +26,7 @@ const addDoctor = async (req, res, next) => {
     }
 }
 
+//get all doctors 
 const getAllDoctors = async (req, res, next) => {
     try {
         const doctors = await firestore.collection('doctors');
@@ -50,6 +54,7 @@ const getAllDoctors = async (req, res, next) => {
     }
 }
 
+//get a single doctor
 const getDoctor = async (req, res, next) => {
     try {
         const id = req.params.id;
@@ -65,6 +70,7 @@ const getDoctor = async (req, res, next) => {
     }
 }
 
+//update a doctor
 const updateDoctor = async (req, res, next) => {
     try {
         const id = req.params.id;
@@ -77,6 +83,7 @@ const updateDoctor = async (req, res, next) => {
     }
 }
 
+//delete a doctor
 const deleteDoctor = async (req, res, next) => {
     try {
         const id = req.params.id;
