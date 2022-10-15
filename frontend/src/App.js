@@ -34,6 +34,7 @@ import OneDetails from './components/AnswersTo/OneDetails/OneDetails';
 import ClientHome from './components/HomePage/ClientHome/clientHome';
 import AdminHome from './components/HomePage/AdminHome/AdminHome';
 import MarksPDF from './components/AnswersTo/PdfDownload/MarksPdf';
+import Feedback from './components/ActivityManagement/FeedbackPage/Feedback';
 
 
 function App() {
@@ -75,6 +76,7 @@ function App() {
             <Route path="/admin/addNewQuestion" exact component = {AddNewQuestion} />
             <Route path='/admin/ViewAllQuestions' exact component={ViewAllQuestions} />
             <Route path='/admin/ViewAllQuestions/updateQuestion/:id' exact component={UpdateNewQuestion} />
+            <Route path='/admin/questions/feedback' exact component={Feedback}/>
          <Footer/>
         </div>
       </Router>
