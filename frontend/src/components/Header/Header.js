@@ -2,32 +2,24 @@ import React, {useEffect, useState} from 'react';
 import { useHistory, useLocation,Link } from 'react-router-dom';
 import { IconButton } from '@material-ui/core';
 import DehazeIcon from '@material-ui/icons/Dehaze';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import HomeIcon from '@material-ui/icons/Home';
 import PersonIcon from '@material-ui/icons/Person';
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import AssignmentIcon from '@material-ui/icons/Assignment';
-import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
-import FeedbackIcon from '@material-ui/icons/Feedback';
-import Badge from '@material-ui/core/Badge';
 import Avatar from '@material-ui/core/Avatar';
 import onClickOutside from "react-onclickoutside";
 import ForumIcon from '@mui/icons-material/Forum'
 import { blue } from '@material-ui/core/colors';
 import { Button } from '@material-ui/core';
-import axios from 'axios';
 import './Header.css';
 import './Sidebar.css';
 
 function Header() {
     const [isSignedIn, setIsSignedIn] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
-    const [isStudent, setIsStudent] = useState(false);
-    const [isSupervisor, setIsSupervisor] = useState(false);
-    const [isCosupervisor, setIsCosupervisor] = useState(false);
-    const [isPanelmember, setIsPanelmember] = useState(false);
+    const [isUser, setIsUser] = useState(false);
     const [user, setUser] = useState("");
     const [URL, setURL] = useState("/patient");
     const history = useHistory();
@@ -35,31 +27,37 @@ function Header() {
     const [sidebar, setSidebar] = useState(false);
 
     const SidebarItem = [
-        {
+        isAdmin &&{
           title: 'Home',
-          path: `/home`,
+          path: `/AdminHome`,
           icon: <HomeIcon/>,
           cName: 'nav-text'
         },
+        isUser &&{
+            title: 'Home',
+            path: `/ClientHome`,
+            icon: <HomeIcon/>,
+            cName: 'nav-text'
+        },
         {
-          title: 'Profile',
-           path: `${URL}/update/${user._id}`,
-          icon: <PersonIcon/>,
+          title: 'Articles',
+          path: `/articles/list`,
+          icon: <AssignmentIcon/>,
           cName: 'nav-text'
         },
-        isStudent &&{
-          title: 'Topic Registration',
-          path: `/supervisor/ViewSupervisor`,
-          icon: <EventAvailableIcon/>,
-          cName: 'nav-text'
+        {
+            title: 'Videos',
+            path: `/videos/list`,
+            icon: <VideoLibraryIcon/>,
+            cName: 'nav-text'
         },
-        (isStudent || isSupervisor || isCosupervisor) &&{
+        (isUser || isAdmin) &&{
             title: 'Requests',
             path: `/request/allrequest/`,
             icon: <EventAvailableIcon/>,
             cName: 'nav-text'
         },
-        (isStudent || isPanelmember) &&{
+        (isUser || isAdmin) &&{
             title: 'Topic Evaluation',
             path: `/topiceval/view`,
             icon: <EventAvailableIcon/>,
@@ -71,7 +69,7 @@ function Header() {
           icon: <AssignmentIcon/>,
           cName: 'nav-text'
         },
-        (isStudent || isSupervisor || isCosupervisor) &&{
+        (isUser || isAdmin) &&{
             title: 'Chat',
             path: `/student/chat/${user._id}`,
             icon: <ForumIcon />,
@@ -87,7 +85,7 @@ function Header() {
 
     useEffect(() => {
         //check whether user has signed in
-        if(localStorage.getItem("studentAuthToken") || localStorage.getItem("supervisorAuthToken") || localStorage.getItem("adminAuthToken") || localStorage.getItem("cosupervisorAuthToken") || localStorage.getItem("panelmemberAuthToken")){
+        if(localStorage.getItem("userAuthToken") || localStorage.getItem("adminAuthToken")){
             setIsSignedIn(true)
 
             //get user data
@@ -96,25 +94,12 @@ function Header() {
             }
                     
             if(localStorage.getItem("adminAuthToken")){
-                // setURL(`/admin`)
+                setURL(`/admin`)
                 setIsAdmin(true)
             }
-            if(localStorage.getItem("studentAuthToken")){
-                setURL(`/student`)
-                setIsStudent(true)
-            }
-
-            if(localStorage.getItem("supervisorAuthToken")){
-                setURL(`/supervisor`)
-                setIsSupervisor(true)
-            }
-            if(localStorage.getItem("cosupervisorAuthToken")){
-                setURL(`/cosupervisor`)
-                setIsCosupervisor(true)
-            }
-            if(localStorage.getItem("panelmemberAuthToken")){
-                setURL(`/panelmember`)
-                setIsPanelmember(true)
+            if(localStorage.getItem("userAuthToken")){
+                setURL(`/user`)
+                setIsUser(true)
             }
 
         }else{
@@ -123,7 +108,7 @@ function Header() {
     }, [user._id,location])
 
     function profile() {
-        history.push(`${URL}/update/${user._id}`)
+        history.push('/')
     }
 
 
@@ -132,13 +117,15 @@ function Header() {
     }
 
     function signup() {
-        history.push('/student/signup')
+        history.push('/user/signup')
     }
     
     //logout
     async function logout(){
-        localStorage.clear();
         history.push('/')
+        localStorage.clear();
+        setIsAdmin(false);
+        setIsUser(false);
     }
 
     const showSidebar = () => setSidebar(!sidebar);
@@ -146,7 +133,7 @@ function Header() {
     Header.handleClickOutside = () => setSidebar(false);
 
     function home(){
-        history.push('/')
+        history.push('/AdminHome')
     }
     
     return (
@@ -154,6 +141,7 @@ function Header() {
             <div className="container-fluid">
                 <nav className="navbar navbar-inverse navbar-expand-lg navbar-light fixed-top header-bg">
                     <div className="container-fluid ">
+                    {isSignedIn ?
                         <ul>
                             {sidebar ? <IconButton><DehazeIcon fontSize="large" style={{ color: blue[0] }}/></IconButton> :
                             <IconButton onClick={showSidebar}>
@@ -161,8 +149,11 @@ function Header() {
                             </IconButton>
                             } 
                         </ul>
+                        :
+                        <div></div>
+                            }
                         <div className="header-title">
-                            <h3 onClick={home}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLIIT&nbsp;Research&nbsp;Management Tool </h3>
+                            <h3 onClick={home}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;නිරෝගී&nbsp;&nbsp; </h3>
                         </div>
                         <ul className="mx-3">
                             {isSignedIn ?
@@ -174,14 +165,7 @@ function Header() {
                                     </IconButton> 
                                 </div>
                                 :
-                                <div>
-                                    <button className="btn btn-outline-primary mx-2" onClick={signin}>
-                                        Sign In
-                                    </button>
-                                    <button className="btn btn-outline-primary" onClick={signup}>
-                                        Sign Up
-                                    </button>
-                                </div>
+                                <div></div>
                             }
                         </ul>
                     </div>
@@ -192,7 +176,7 @@ function Header() {
                             <li className='mb-4 mt-3' align="center">
                                 {/* <img src="/images/Logo.png" width="150px"  height="90px" alt="logo"/> */}
                                 {/* <img src="/images/sliit-web-logo.png" width="150px" alt="logo"/> */}
-                                <img src="/images/SLIIT_Logo.png" width="100px" height="120px" alt="logo"/>
+                                <img src="/images/Logo.png" width="100px" height="120px" alt="logo"/>
                             </li>
                             {SidebarItem.map((item, index) => {
                             return (
