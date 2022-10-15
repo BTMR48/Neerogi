@@ -15,17 +15,17 @@ function ArticleItem() {
 
   const [articles, setArticles] = useState([])
   const history = useHistory()
-  const [user, setUser] = useState("");
   const [isAdmin,setIsAdmin]= useState(false);
   const [isUser,setIsUser]= useState(false)
 
   useEffect(() => { 
-    if(localStorage.getItem("user")){
-      setUser(JSON.parse(localStorage.getItem('user')))
-    }
-
+ 
     if(localStorage.getItem("adminAuthToken")){
       setIsAdmin(true)
+    }
+
+    if(localStorage.getItem("userAuthToken")){
+      setIsUser(true)
     }
     
     async function getAllArticles() {

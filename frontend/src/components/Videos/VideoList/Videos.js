@@ -21,6 +21,15 @@ function VideoItem() {
   useEffect(() => { 
     
     async function getAllVideos() {
+  
+      if(localStorage.getItem("adminAuthToken")){
+        setIsAdmin(true)
+      }
+  
+      if(localStorage.getItem("userAuthToken")){
+        setIsUser(true)
+      }
+      
       axios.get(`http://localhost:8070/video`).then((res) => {
         setVideos(res.data)  
       }).catch((error) => {
@@ -129,18 +138,13 @@ function update(id){
               <div key={key}> 
                   <div className="productCard" >
                       <div className="imgBx">
-                          <img  src={`${Video.imgUrl}`} alt="Video" className="itemProduct"/>
+                          <img  src={`${Video.imgUrl}`} alt="Video" className="itemProduct" onClick={() => view(Video.videoUrl)}/>
                       </div>
                       <div className="p-3">
                           <h7>{Video.heading}</h7>
                           <h6>{Video.date}</h6>
                           {isAdmin &&
                           <div align="center">
-                            <span> 
-                                <IconButton onClick={() => view(Video.videoUrl)}>
-                                      <VisibilityIcon style={{ color: "#008B8B" }} ></VisibilityIcon>
-                                  </IconButton>
-                            </span>
                             <span> 
                                 <IconButton onClick={() => update(Video.id)}>
                                       <EditIcon style={{ color: "#008B8B" }} ></EditIcon>
