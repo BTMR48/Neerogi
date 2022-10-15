@@ -27,42 +27,30 @@ function Header() {
     const [sidebar, setSidebar] = useState(false);
 
     const SidebarItem = [
-        {
+        isAdmin &&{
           title: 'Home',
           path: `/AdminHome`,
           icon: <HomeIcon/>,
           cName: 'nav-text'
         },
-        {
-          title: 'Profile',
-           path: `${URL}/update/${user._id}`,
-          icon: <PersonIcon/>,
-          cName: 'nav-text'
+        isUser &&{
+            title: 'Home',
+            path: `/ClientHome`,
+            icon: <HomeIcon/>,
+            cName: 'nav-text'
         },
-        isAdmin &&{
-          title: 'Article management',
+        {
+          title: 'Articles',
           path: `/articles/list`,
           icon: <AssignmentIcon/>,
           cName: 'nav-text'
         },
-        isAdmin &&{
-            title: 'Video management',
+        {
+            title: 'Videos',
             path: `/videos/list`,
             icon: <VideoLibraryIcon/>,
             cName: 'nav-text'
-          },
-          isUser &&{
-            title: 'Articles',
-            path: `/articles/list`,
-            icon: <AssignmentIcon/>,
-            cName: 'nav-text'
-          },
-          isUser &&{
-              title: 'Videos',
-              path: `/videos/list`,
-              icon: <VideoLibraryIcon/>,
-              cName: 'nav-text'
-            },
+        },
         (isUser || isAdmin) &&{
             title: 'Requests',
             path: `/request/allrequest/`,
@@ -120,7 +108,7 @@ function Header() {
     }, [user._id,location])
 
     function profile() {
-        history.push(`${URL}/update/${user._id}`)
+        history.push('/')
     }
 
 
@@ -134,8 +122,10 @@ function Header() {
     
     //logout
     async function logout(){
-        localStorage.clear();
         history.push('/')
+        localStorage.clear();
+        setIsAdmin(false);
+        setIsUser(false);
     }
 
     const showSidebar = () => setSidebar(!sidebar);
@@ -151,6 +141,7 @@ function Header() {
             <div className="container-fluid">
                 <nav className="navbar navbar-inverse navbar-expand-lg navbar-light fixed-top header-bg">
                     <div className="container-fluid ">
+                    {isSignedIn ?
                         <ul>
                             {sidebar ? <IconButton><DehazeIcon fontSize="large" style={{ color: blue[0] }}/></IconButton> :
                             <IconButton onClick={showSidebar}>
@@ -158,6 +149,9 @@ function Header() {
                             </IconButton>
                             } 
                         </ul>
+                        :
+                        <div></div>
+                            }
                         <div className="header-title">
                             <h3 onClick={home}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;නිරෝගී&nbsp;&nbsp; </h3>
                         </div>
@@ -171,14 +165,7 @@ function Header() {
                                     </IconButton> 
                                 </div>
                                 :
-                                <div>
-                                    <button className="btn btn-outline-primary mx-2" onClick={signin}>
-                                        Sign In
-                                    </button>
-                                    <button className="btn btn-outline-primary" onClick={signup}>
-                                        Sign Up
-                                    </button>
-                                </div>
+                                <div></div>
                             }
                         </ul>
                     </div>

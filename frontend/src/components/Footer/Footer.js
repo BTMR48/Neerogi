@@ -15,7 +15,7 @@ function Footer() {
     //     history.push("https://www.sliit.lk/service-feedback-form/")
     // }
     return (
-        <footer className="px-5">
+        <footer className="px-5" style={{paddingTop:35,marginTop:35}}>
             <div className="">
                 <div className="row">
                     <div className="col-xl-1" align="center">
