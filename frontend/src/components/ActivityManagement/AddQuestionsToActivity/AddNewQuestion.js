@@ -14,6 +14,16 @@ function AddNewQuestion(){
     const[questionId, setQuestionId] = useState("");
     const[questionNum, setQuestionNum] = useState("");
     const[question, setQuestion] = useState("");
+
+    const myStyle={
+        backgroundImage: 
+        "url('/images/backgroundimg.jpg')",
+          height:'120vh',
+         marginBottom:'-120px',
+        // fontSize:'50px',
+        backgroundSize: 'cover',
+        // backgroundRepeat: 'no-repeat',
+    };
   
 
     const [previewSource, setPreviewSource] = useState();
@@ -184,168 +194,172 @@ function AddNewQuestion(){
 
 
     return(
-        <div className="container" align="center" >
-            <div className="row">
-                <div className="col-12">
-                    <div className="pb-2 px-3 d-flex flex-wrap align-items-center justify-content-between">
-                        <h2>&nbsp;Add New Question</h2>
+        <div style={myStyle}>
+            <br></br>
+            <br></br>
+            <div className="container" align="center" >
+                <div className="row">
+                    <div className="col-12">
+                        <div className="pb-2 px-3 d-flex flex-wrap align-items-center justify-content-between">
+                            <h2>&nbsp;Add New Question</h2>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <br></br>
-            <div className="create_progress">
-                <form onSubmit={add} className="addProgress">
-                    <div className="row">
-                        <div className="col-8">
-                            <div className="row">
-                                <div className="col-md-8 mb-4">
-                                    <div className="form-name">
-                                        <OutlinedInput
-                                            type="text" id="QuestionId" placeholder="QuestionId" 
-                                            required fullWidth
-                                            onChange={(e)=>setQuestionId(e.target.value)}
-                                            inputProps={{style: {padding: 12}}} 
-                                        />
-                                    </div>
-                                </div>
-                                <div> 
+                <br></br>
+                <div className="create_progress">
+                    <form onSubmit={add} className="addProgress">
+                        <div className="row">
+                            <div className="col-8">
+                                <div className="row">
                                     <div className="col-md-8 mb-4">
-                                        <div className="form-date">
-                                            <OutlinedInput 
-                                                type="text" id="QuestionNum" placeholder="QuestionNum" required fullWidth
-                                                onChange={(e)=>setQuestionNum(e.target.value)}
-                                                inputProps={{style: {padding: 12}}}
+                                        <div className="form-name">
+                                            <OutlinedInput
+                                                type="text" id="QuestionId" placeholder="QuestionId" 
+                                                required fullWidth
+                                                onChange={(e)=>setQuestionId(e.target.value)}
+                                                inputProps={{style: {padding: 12}}} 
                                             />
                                         </div>
                                     </div>
-                                </div>                       
-                                <div> 
-                                    <div className="col-md-8 mb-4">
-                                        <div className="form-date">
-                                            <OutlinedInput 
-                                                type="text" id="Question" placeholder="Question" required fullWidth
-                                                onChange={(e)=>setQuestion(e.target.value)}
-                                                inputProps={{style: {padding: 12}}}
-                                            />
+                                    <div> 
+                                        <div className="col-md-8 mb-4">
+                                            <div className="form-date">
+                                                <OutlinedInput 
+                                                    type="text" id="QuestionNum" placeholder="QuestionNum" required fullWidth
+                                                    onChange={(e)=>setQuestionNum(e.target.value)}
+                                                    inputProps={{style: {padding: 12}}}
+                                                />
+                                            </div>
                                         </div>
+                                    </div>                       
+                                    <div> 
+                                        <div className="col-md-8 mb-4">
+                                            <div className="form-date">
+                                                <OutlinedInput 
+                                                    type="text" id="Question" placeholder="Question" required fullWidth
+                                                    onChange={(e)=>setQuestion(e.target.value)}
+                                                    inputProps={{style: {padding: 12}}}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>     
+                                </div>
+                            </div>
+                            <div className="col-4 d-flex justify-content-center">
+                                <div>
+                                    {previewSource3 ? 
+                                        <img src={previewSource3} alt="Uploaded" className="previewImg"/>
+                                    :
+                                        <img src="/images/progress.png" className="previewImg" alt="voice Record"/>
+                                    }
+                                    <div className="form-group">
+                                        <label htmlFor="voiceRecord">
+                                            <input
+                                                style={{ display: 'none' }}
+                                                id="voiceRecord"
+                                                name="voiceRecord"
+                                                type="file"
+                                                onChange={handleFileInputChange3}
+                                                value={fileInputState3}
+                                            />
+
+                                            <Button color="primary" variant="contained" component="span" style={{backgroundColor:red[400]}}>
+                                                &nbsp; Upload Audio file
+                                            </Button>
+                                        </label>
                                     </div>
-                                </div>     
+                                </div>
                             </div>
-                        </div>
-                        <div className="col-4 d-flex justify-content-center">
-                            <div>
-                                {previewSource3 ? 
-                                    <img src={previewSource3} alt="Uploaded" className="previewImg"/>
-                                :
-                                    <img src="/images/progress.png" className="previewImg" alt="voice Record"/>
-                                }
-                                <div className="form-group">
-                                    <label htmlFor="voiceRecord">
-                                        <input
-                                            style={{ display: 'none' }}
-                                            id="voiceRecord"
-                                            name="voiceRecord"
-                                            type="file"
-                                            onChange={handleFileInputChange3}
-                                            value={fileInputState3}
-                                        />
+                            <br></br>
+                            <div className="col-4 d-flex justify-content-center">
+                                <div>
+                                    {previewSource ? 
+                                        <img src={previewSource} alt="preview" className="previewImg"/>
+                                    :
+                                        <img src="/images/progress.png" className="previewImg" alt="imageOne"/>
+                                    }
+                                    <div className="form-group">
+                                        <label htmlFor="imageOne">
+                                            <input
+                                                style={{ display: 'none' }}
+                                                id="imageOne"
+                                                name="imageOne"
+                                                type="file"
+                                                onChange={handleFileInputChange}
+                                                value={fileInputState}
+                                            />
 
-                                        <Button color="primary" variant="contained" component="span" style={{backgroundColor:red[400]}}>
-                                             &nbsp; Upload Audio file
-                                        </Button>
-                                    </label>
+                                            <Button color="primary" variant="contained" component="span">
+                                                <AddAPhotoIcon />&nbsp; Upload Image 1
+                                            </Button>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <br></br>
+                            <div className="col-4 d-flex justify-content-center">
+                                <div>
+                                    {previewSource1 ? 
+                                        <img src={previewSource1} alt="preview" className="previewImg"/>
+                                    :
+                                        <img src="/images/progress.png" className="previewImg" alt="imageTwo"/>
+                                    }
+                                    <div className="form-group">
+                                        <label htmlFor="imageTwo">
+                                            <input
+                                                style={{ display: 'none' }}
+                                                id="imageTwo"
+                                                name="imageTwo"
+                                                type="file"
+                                                onChange={handleFileInputChange1}
+                                                value={fileInputState1}
+                                            />
+
+                                            <Button color="primary" variant="contained" component="span" >
+                                                <AddAPhotoIcon />&nbsp; Upload Image 2
+                                            </Button>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <br></br>
+                            <div className="col-4 d-flex justify-content-center">
+                                <div>
+                                    {previewSource2 ? 
+                                        <img src={previewSource2} alt="preview" className="previewImg"/>
+                                    :
+                                        <img src="/images/progress.png" className="previewImg" alt="imageThree"/>
+                                    }
+                                    <div className="form-group">
+                                        <label htmlFor="imageThree">
+                                            <input
+                                                style={{ display: 'none' }}
+                                                id="imageThree"
+                                                name="imageThree"
+                                                type="file"
+                                                onChange={handleFileInputChange2}
+                                                value={fileInputState2}
+                                            />
+
+                                            <Button color="primary" variant="contained" component="span">
+                                                <AddAPhotoIcon />&nbsp; Upload Image 3
+                                            </Button>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <br></br>
-                        <div className="col-4 d-flex justify-content-center">
-                            <div>
-                                {previewSource ? 
-                                    <img src={previewSource} alt="preview" className="previewImg"/>
-                                :
-                                    <img src="/images/progress.png" className="previewImg" alt="imageOne"/>
-                                }
+                    
+                        <div className="row">
+                            <div className="col-md-12">
                                 <div className="form-group">
-                                    <label htmlFor="imageOne">
-                                        <input
-                                            style={{ display: 'none' }}
-                                            id="imageOne"
-                                            name="imageOne"
-                                            type="file"
-                                            onChange={handleFileInputChange}
-                                            value={fileInputState}
-                                        />
-
-                                        <Button color="primary" variant="contained" component="span">
-                                            <AddAPhotoIcon />&nbsp; Upload Image 1
-                                        </Button>
-                                    </label>
+                                    <input className="form-submit-btn" type="submit" value="AddNewQuestion" />
                                 </div>
                             </div>
                         </div>
-                        <br></br>
-                        <div className="col-4 d-flex justify-content-center">
-                            <div>
-                                {previewSource1 ? 
-                                    <img src={previewSource1} alt="preview" className="previewImg"/>
-                                :
-                                    <img src="/images/progress.png" className="previewImg" alt="imageTwo"/>
-                                }
-                                <div className="form-group">
-                                    <label htmlFor="imageTwo">
-                                        <input
-                                            style={{ display: 'none' }}
-                                            id="imageTwo"
-                                            name="imageTwo"
-                                            type="file"
-                                            onChange={handleFileInputChange1}
-                                            value={fileInputState1}
-                                        />
-
-                                        <Button color="primary" variant="contained" component="span" >
-                                             <AddAPhotoIcon />&nbsp; Upload Image 2
-                                        </Button>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <br></br>
-                        <div className="col-4 d-flex justify-content-center">
-                            <div>
-                                {previewSource2 ? 
-                                    <img src={previewSource2} alt="preview" className="previewImg"/>
-                                :
-                                    <img src="/images/progress.png" className="previewImg" alt="imageThree"/>
-                                }
-                                <div className="form-group">
-                                    <label htmlFor="imageThree">
-                                        <input
-                                            style={{ display: 'none' }}
-                                            id="imageThree"
-                                            name="imageThree"
-                                            type="file"
-                                            onChange={handleFileInputChange2}
-                                            value={fileInputState2}
-                                        />
-
-                                        <Button color="primary" variant="contained" component="span">
-                                             <AddAPhotoIcon />&nbsp; Upload Image 3
-                                        </Button>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                   
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="form-group">
-                                <input className="form-submit-btn" type="submit" value="AddNewQuestion" />
-                            </div>
-                        </div>
-                    </div>
-                </form>            
-            </div>                    
+                    </form>            
+                </div>                    
+        </div>
     </div>
 
     )
