@@ -16,6 +16,16 @@ function AddNewActivity() {
   const location = useLocation()
   const [user, setUser] =  useState("");
 
+  const myStyle={
+    backgroundImage: 
+    "url('/images/backgroundimg.jpg')",
+      height:'260vh',
+     marginBottom:'-120px',
+    // fontSize:'50px',
+    backgroundSize: 'cover',
+    // backgroundRepeat: 'no-repeat',
+};
+
   useEffect(() => { 
     if(localStorage.getItem("user")){
       setUser(JSON.parse(localStorage.getItem('user')))
@@ -58,45 +68,58 @@ function AddNewActivity() {
     history.push(`/admin/addNewQuestion`)
   }
 
+  function viewQuestion(){
+    history.push('/admin/ViewAllQuestions')
+  }
+
     return (
-        <div className="container">
-          <div className="row">
-              <div className="col-4">
-                <div className="pb-2 px-3 d-flex flex-wrap align-items-center justify-content-between">
-                    <h2>Activities </h2>
+      <div style={myStyle}>
+        <br></br>
+        <br></br>
+          <div className="container">
+            <div className="row">
+                <div className="col-4">
+                  <div className="pb-2 px-3 d-flex flex-wrap align-items-center justify-content-between">
+                      <h2>Activities </h2>
+                  </div>
                 </div>
-              </div>
-              <div className="col-3">
-              </div>
-              <div className="col-5">
+
+                <div className="col-3">
+
+                </div>
+                <div className="col-5">
+            </div>
           </div>
-        </div>
-        <div className="progressGrid" align="center" > 
-          {isAdmin && 
-            <Button  className="mx-2 progressBtn" style={{backgroundColor:blue[400],color:'white'}} onClick={()=>addActivity()}>
-            Add New Activity <AddIcon/>
-            </Button>  
-          }
-          {activities.map((Activity,key)=>( 
-                <div key={key}> 
-                    <div className="progressCard" align="center" >
-                        <div className="p-3">
-                            <h5>{Activity.activityName}</h5>
-                            <div align="right">
-                                  { isAdmin &&
-                                        <div style={{verticalAlign:'middle'}}>
-                                            <IconButton onClick={() => deleteQuestion(Activity.id)}>
-                                                <DeleteIcon style={{ color: red[500] }} ></DeleteIcon>
-                                            </IconButton>
-                                            &nbsp;&nbsp;&nbsp;
-                                             <button className="progressBtn" style={{backgroundColor:red[400]}} onClick={()=>addQuestion()}> Add ? </button>
-                                        </div> 
-                                  }
-                            </div>
-                        </div>
-                    </div>
-                </div>
-          ))} 
+          <div className="progressGrid" align="center" > 
+            {/* {isAdmin &&  */}
+              <Button  className="mx-2 progressBtn" style={{backgroundColor:blue[400],color:'white'}} onClick={()=>addActivity()}>
+              Add New Activity <AddIcon/>
+              </Button>  
+            {/* } */}
+            {activities.map((Activity,key)=>( 
+                  <div key={key}> 
+                      <div className="progressCard" align="center" >
+                          <div className="p-3">
+                              <h5>{Activity.activityName}</h5>
+                              <div align="right">
+                                    {/* { isAdmin && */}
+                                          <div style={{verticalAlign:'middle'}}>
+                                              <IconButton onClick={() => deleteQuestion(Activity.id)}>
+                                                  <DeleteIcon style={{ color: red[500] }} ></DeleteIcon>
+                                              </IconButton>
+                                              &nbsp;&nbsp;&nbsp;
+                                              <button className="progressBtn" style={{backgroundColor:red[400]}} onClick={()=>addQuestion()}> Add ? </button>
+                                          </div> 
+                                      {/* } */}
+                              </div>
+                              <div align = "left">
+                                <button className="progressBtn" style={{backgroundColor:red[400]}} onClick={()=>viewQuestion()}> පිවිසෙන්න </button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+            ))} 
+          </div>
         </div>
       </div>
     )      

@@ -18,6 +18,15 @@ function Answersforsuti(){
 function doctorDetails(){
     history.push(`/doctor/cards`)
 }
+function activities(){
+    history.push(`/admin/addNewActivity`)
+}
+function articles(){
+    history.push(`/articles/list`)
+}
+function videos(){
+    history.push(`/videos/list`)
+}
 const myStyle={
     backgroundImage: 
     "url('/images/backgroundimg.jpg')",
@@ -71,7 +80,7 @@ const myStyle={
             </div>
                 
                 <div className="col-md-4">
-                <div className="progressCards" >
+                <div className="progressCards" onClick={detailsQuestion}>
                             
                             <div className="pp">
                                 <div align="center">
@@ -86,7 +95,7 @@ const myStyle={
                 <div className="row" style={{paddingBottom:35}}>
                 <div className="col-md-4">
 
-                <div className="progressCards" >
+                <div className="progressCards" onClick={detailsQuestion}>
                             
                             <div className="pp">
                                 <div align="center">
@@ -98,7 +107,7 @@ const myStyle={
                         </div>
                 </div>
             <div className="col-md-4">
-            <div className="progressCards" >
+            <div className="progressCards" onClick={activities}>
                             
                             <div className="pp">
                                 <div align="center">
