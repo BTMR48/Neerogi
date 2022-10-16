@@ -34,6 +34,7 @@ import OneDetails from './components/AnswersTo/OneDetails/OneDetails';
 import ClientHome from './components/HomePage/ClientHome/clientHome';
 import AdminHome from './components/HomePage/AdminHome/AdminHome';
 import MarksPDF from './components/AnswersTo/PdfDownload/MarksPdf';
+import Feedback from './components/ActivityManagement/FeedbackPage/Feedback';
 
 
 function App() {
@@ -41,7 +42,6 @@ function App() {
     <div className="App">
       <Router>
         <div>
-
         <Header/>
             <Route path="/articles/list" exact component={ArticlesList} />
             <Route path="/videos/list" exact component={VideosList} />
@@ -56,9 +56,6 @@ function App() {
             <PrivateRoute path="/doctor/update/:id" exact component={DoctorUpdate} />
             <Route path="/doctor/cards" exact component={AllDoctorsClient} />
             <Route path="/doctor/cards/:id" exact component={SingleDoctor} />
-            <Route path="/doctor/all" exact component={AllDoctors} />
-            <Route path="/doctor/add" exact component={DoctorAdd} />
-            <Route path="/doctor/update/:id" exact component={DoctorUpdate} />
             <Route path="/question/AllQuestions" exact component={ AllQuestions } />
             <Route path="/question/AddQuestions" exact component={ AddQuestions } />
             <Route path="/question/UpdateQuestion/:id" exact component={ UpdateQuestion } />
@@ -75,6 +72,7 @@ function App() {
             <Route path="/admin/addNewQuestion" exact component = {AddNewQuestion} />
             <Route path='/admin/ViewAllQuestions' exact component={ViewAllQuestions} />
             <Route path='/admin/ViewAllQuestions/updateQuestion/:id' exact component={UpdateNewQuestion} />
+            <Route path='/admin/questions/feedback' exact component={Feedback}/>
          <Footer/>
         </div>
       </Router>

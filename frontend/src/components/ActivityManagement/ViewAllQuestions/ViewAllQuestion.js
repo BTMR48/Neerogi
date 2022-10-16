@@ -33,7 +33,6 @@ function ViewAllQuestions(){
 
         async function getViewAllQuestions(){
             axios.get('http://localhost:8070/activityQuestions/getAllQuestions').then((res) => {
-                console.log(questions)
                 setQuestion(res.data)
                 
             }).catch((error) => {
@@ -88,22 +87,22 @@ function ViewAllQuestions(){
       }
 
       function next(){
-        history.push(`/evolution/addProgress`)
+        history.push(`/admin/questions/feedback`)
       }
       
       function reprotGenerate(){
         history.push(`/evolution/addProgress`)
       }
-      function voice(){
-        history.push(`/${voiceRecord}`)
-      }
+      // function voice(){
+      //   history.push(voiceRecord)
+      // }
 
     return(
         <div className="container">
           <div className="row">
               <div className="col-4">
                 <div className="pb-2 px-3 d-flex flex-wrap align-items-center justify-content-between">
-                    <h2>Questions </h2>
+                    <h2>ප්‍රශ්නාවලිය </h2>
                 </div>
               </div>
               <div className="col-3">
@@ -149,12 +148,13 @@ function ViewAllQuestions(){
                             <h6>{Question.questionNum}.&nbsp;{Question.question}</h6>
                             <br></br>
                             <br></br>
-                              <div className='questionsImg'>
+                              <div className='questionsImg' >
                                   {Question.imageOne === ""?
                                   <img src="/images/avatar.jpg" className="questionImgHeight" alt="question"/>
                                   :
                                   <img src={`${Question.imageOne}`} className="questionImgHeight" alt="question"/>
                                   }
+                                  
                                   &nbsp;&nbsp;&nbsp;
                                   {Question.imageTwo === ""?
                                   <img src="/images/avatar.jpg" className="questionImgHeight" alt="question"/>
@@ -170,6 +170,8 @@ function ViewAllQuestions(){
                                   <br></br>
                                   <br></br>
                                   <br></br>
+
+                                  <ReactAudioPlayer src="my_audio_file.ogg" autoPlay controls />
 
                                   {/* {Question.voiceRecord  === ""?
                                   <ReactAudioPlayer src="my_audio_file.ogg" autoPlay controls />
@@ -187,10 +189,9 @@ function ViewAllQuestions(){
                                   } */}
 
                                   {/* <img src="/images/avatar.jpg" className="questionImgHeight" alt="question" onClick={}/> */}
-                                  <div onClick={() => voice(Question.voiceRecord)}><h6>{Question.voiceRecord}</h6></div>
+                                  {/* <div onClick={() => voice(Question.voiceRecord)}><h6>{Question.voiceRecord}</h6></div> */}
                               </div>
-                              <ReactAudioPlayer src="audio/teacher.ogg" autoPlay controls />
-                              {/* <ReactAudioPlayer ref={(element) => { this.rap = element; }}/> */}
+                              
                               {isAdmin && 
                                 <div align="right">
                                   <div style={{verticalAlign:'middle'}}>
@@ -212,14 +213,14 @@ function ViewAllQuestions(){
         </div>
         <div align="right">
           <span> 
-          <button className="nextBtn" style={{backgroundColor:blue[400]}} onClick={()=>next()}> NEXT</button>
+          <button className="nextBtn" style={{backgroundColor:blue[400]}} onClick={()=>next()}> මීළගට</button>
           </span> 
         </div>
-        {/* {isAdmin &&  */}
+        {isAdmin && 
             <Button  className="mx-2 progressBtn" style={{backgroundColor:blue[400],color:'white'}} onClick={()=>reprotGenerate()}>
             Download Report <CloudDownloadIcon/>
             </Button>  
-          {/* } */}
+        }
       </div>
     )
 }
