@@ -82,8 +82,9 @@ function SignUp() {
         }
 
         if(password === confirmpassword){
-
-            const newUser = {name, email, password, imgUrl, role}
+            const current = new Date();
+            const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+            const newUser = {name, email, password, imgUrl, role,date}
 
             try {
                 await axios.post("http://localhost:8070/user/signup", newUser , config)

@@ -28,25 +28,25 @@ function Header() {
 
     const SidebarItem = [
         isAdmin &&{
-          title: 'Home',
+          title: 'මුල් පිටුව',
           path: `/AdminHome`,
           icon: <HomeIcon/>,
           cName: 'nav-text'
         },
         isUser &&{
-            title: 'Home',
+            title: 'මුල් පිටුව',
             path: `/ClientHome`,
             icon: <HomeIcon/>,
             cName: 'nav-text'
         },
-        {
-          title: 'Articles',
+        (isUser || isAdmin) &&{
+          title: 'ලිපි',
           path: `/articles/list`,
           icon: <AssignmentIcon/>,
           cName: 'nav-text'
         },
-        {
-            title: 'Videos',
+        (isUser || isAdmin) &&{
+            title: 'වීඩියෝ',
             path: `/videos/list`,
             icon: <VideoLibraryIcon/>,
             cName: 'nav-text'
