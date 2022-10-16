@@ -12,7 +12,7 @@ function InAnswers(props) {
   const marks = props.match.params.marks;
   
   function view(){
-    history.push(`/doctor/all`)
+    history.push(`/doctor/cards`)
   }
   
   function viewr(){
@@ -26,8 +26,12 @@ function InAnswers(props) {
   const myStyle={
     backgroundImage: 
     "url('/images/backgroundimg.jpg')",
+
      height:'160vh',
-     marginBottom:'-120px',
+
+
+     //marginBottom:'-120px',
+
     // fontSize:'50px',
     backgroundSize: 'cover',
     // backgroundRepeat: 'no-repeat',

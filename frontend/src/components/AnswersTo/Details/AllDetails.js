@@ -47,6 +47,7 @@ function ProgressLevel() {
     backgroundImage: 
     "url('/images/backgroundimg.jpg')",
      height:'200vh',
+
      marginBottom:'-120px',
     // fontSize:'50px',
     backgroundSize: 'cover',
@@ -74,7 +75,7 @@ function ProgressLevel() {
        
           {questions.map((Questions,key)=>( 
                 <div key={key}> 
-                    <div className="progressCard" >
+                    <div className="progressCardtharindu" >
                         
                         <div className="p-3">
                             {/* <h2>{Questions.id}</h2> */}

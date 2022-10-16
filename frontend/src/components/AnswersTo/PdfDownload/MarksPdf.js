@@ -31,8 +31,13 @@ function InAnswers(props) {
     const myStyle={
         backgroundImage: 
         "url('/images/backgroundimg.jpg')",
+
          height:'160vh',
          marginBottom:'-120px',
+
+          height:'160vh',
+        // marginBottom:'-120px',
+
         // fontSize:'50px',
         backgroundSize: 'cover',
         // backgroundRepeat: 'no-repeat',
@@ -54,7 +59,7 @@ function InAnswers(props) {
                 <div className="row">
                 <div ref={componentRef}>
                     <div> 
-                        <div className="progressCard" >
+                        <div className="progressCarddaspdf" >
                         <div className="col-xl-18" align="center">
                         <br/>
                         <img src="/images/Logo.png" className="logoFooter2" alt="logo"/>
