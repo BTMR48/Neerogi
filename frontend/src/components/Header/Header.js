@@ -51,36 +51,36 @@ function Header() {
             icon: <VideoLibraryIcon/>,
             cName: 'nav-text'
         },
-        (isUser || isAdmin) &&{
-            title: 'Requests',
-            path: `/request/allrequest/`,
+         isAdmin &&{
+            title: 'වාර්තා',
+            path: `/chart/user`,
             icon: <EventAvailableIcon/>,
             cName: 'nav-text'
         },
-        (isUser || isAdmin) &&{
-            title: 'Topic Evaluation',
-            path: `/topiceval/view`,
-            icon: <EventAvailableIcon/>,
-            cName: 'nav-text'
-        },
-        {    
-          title: 'Marking Schema',
-          path: `/marking`,
-          icon: <AssignmentIcon/>,
-          cName: 'nav-text'
-        },
-        (isUser || isAdmin) &&{
-            title: 'Chat',
-            path: `/student/chat/${user._id}`,
-            icon: <ForumIcon />,
-            cName: 'nav-text'
-        },
-        isAdmin && {
-            title: 'User Management',
-            path: `/users`,
-            icon: <PersonIcon/>,
-            cName: 'nav-text'
-        },
+        // (isUser || isAdmin) &&{
+        //     title: 'Topic Evaluation',
+        //     path: `/topiceval/view`,
+        //     icon: <EventAvailableIcon/>,
+        //     cName: 'nav-text'
+        // },
+        // {    
+        //   title: 'Marking Schema',
+        //   path: `/marking`,
+        //   icon: <AssignmentIcon/>,
+        //   cName: 'nav-text'
+        // },
+        // (isUser || isAdmin) &&{
+        //     title: 'Chat',
+        //     path: `/student/chat/${user._id}`,
+        //     icon: <ForumIcon />,
+        //     cName: 'nav-text'
+        // },
+        // isAdmin && {
+        //     title: 'User Management',
+        //     path: `/users`,
+        //     icon: <PersonIcon/>,
+        //     cName: 'nav-text'
+        // },
     ];
 
     useEffect(() => {

@@ -62,7 +62,7 @@ function doctorDetails(){
                        
                         <div className="pp">
                             <div align="center">
-                                <h2>ddd</h2>
+                                <h2>User Details</h2>
                             
                             </div>   
                         </div>
