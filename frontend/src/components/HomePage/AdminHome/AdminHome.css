@@ -11,10 +11,13 @@
     box-shadow:0px 24px 48px 0 rgba(0,0,0,0.1);
 }
 .pp{
-    
     padding-top:30%;
- 
-   
+}
+.progressCards:hover {
+    cursor: pointer;
+    transition: 0.7s;
+    box-shadow: 0 0 0 4px #c0c0c0;
+
 }
 
 .levelProgress{

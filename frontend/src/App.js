@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import PrivateRoute from './Routes/PrivateRoute';
+import LoggedRoute from './Routes/LoggedRoute';
+
 
 import './App.css';
 
@@ -49,8 +51,8 @@ function App() {
             <Route path="/articles/add" exact component={AddArticle} />
             <Route path="/articles/update/:id" exact component={UpdateArticle} />
             <Route path="/videos/update/:id" exact component={UpdateVideo} />
-            <Route path="/user/signup" exact component={SignUp} />
-            <Route path="/" exact component={Login} />
+            <LoggedRoute path="/user/signup" exact component={SignUp} />
+            <LoggedRoute path="/" exact component={Login} />
             <PrivateRoute path="/doctor/all" exact component={AllDoctors} />
             <PrivateRoute path="/doctor/add" exact component={DoctorAdd} />
             <PrivateRoute path="/doctor/update/:id" exact component={DoctorUpdate} />
