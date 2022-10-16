@@ -29,7 +29,7 @@ import OneDetails from './components/AnswersTo/OneDetails/OneDetails';
 import ClientHome from './components/HomePage/ClientHome/clientHome';
 import AdminHome from './components/HomePage/AdminHome/AdminHome';
 import MarksPDF from './components/AnswersTo/PdfDownload/MarksPdf';
-
+import UserChart from './components/Charts/UsersChart';
 
 function App() {
   return (
@@ -50,7 +50,7 @@ function App() {
             <PrivateRoute path="/doctor/update/:id" exact component={DoctorUpdate} />
             <Route path="/doctor/cards" exact component={AllDoctorsClient} />
             <Route path="/doctor/cards/:id" exact component={SingleDoctor} />
-            <Route path="/doctor/all" exact component={AllDoctors} />
+            <Route path="" exact component={AllDoctors} />
             <Route path="/doctor/add" exact component={DoctorAdd} />
             <Route path="/doctor/update/:id" exact component={DoctorUpdate} />
             <Route path="/question/AllQuestions" exact component={ AllQuestions } />
@@ -63,6 +63,7 @@ function App() {
             <Route path="/AllDetails/onedetails/:name" exact component={OneDetails} />
             <Route path="/ClientHome" exact component={ClientHome} />
             <Route path="/AdminHome" exact component={AdminHome} />
+            <Route path="/chart/user" exact component={UserChart} />
             <Route path="/InAnswers/MarksPDF/:marks" exact component={MarksPDF} />
             <Footer/>
         </div>
