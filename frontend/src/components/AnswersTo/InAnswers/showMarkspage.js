@@ -12,8 +12,12 @@ function InAnswers(props) {
   const marks = props.match.params.marks;
   
   function view(){
-    history.push(`/evolution/level`)
+    history.push(`/doctor/all`)
   }
+  function viewr(){
+    history.push(`/articles/list`)
+  }
+
 
    
   function download(){
@@ -47,7 +51,7 @@ function InAnswers(props) {
   
                
                     <div> 
-                        <div className="progressCard" >
+                        <div className="progressCarddas" >
                             <div className="p-3">
                                 <h2>මුලු ලකුණු</h2>
                                 <div align="right">
