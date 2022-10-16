@@ -72,18 +72,18 @@ function AddNewActivity() {
           </div>
         </div>
         <div className="progressGrid" align="center" > 
-          {/* {isAdmin &&  */}
+          {isAdmin && 
             <Button  className="mx-2 progressBtn" style={{backgroundColor:blue[400],color:'white'}} onClick={()=>addActivity()}>
             Add New Activity <AddIcon/>
             </Button>  
-          {/* } */}
+          }
           {activities.map((Activity,key)=>( 
                 <div key={key}> 
                     <div className="progressCard" align="center" >
                         <div className="p-3">
                             <h5>{Activity.activityName}</h5>
                             <div align="right">
-                                  {/* { isAdmin && */}
+                                  { isAdmin &&
                                         <div style={{verticalAlign:'middle'}}>
                                             <IconButton onClick={() => deleteQuestion(Activity.id)}>
                                                 <DeleteIcon style={{ color: red[500] }} ></DeleteIcon>
@@ -91,7 +91,7 @@ function AddNewActivity() {
                                             &nbsp;&nbsp;&nbsp;
                                              <button className="progressBtn" style={{backgroundColor:red[400]}} onClick={()=>addQuestion()}> Add ? </button>
                                         </div> 
-                                    {/* } */}
+                                  }
                             </div>
                         </div>
                     </div>

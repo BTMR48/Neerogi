@@ -7,11 +7,11 @@ const LoggedRoute =({component: Component, ...rest}) => {
             {...rest}
             render={(props) => 
                 (localStorage.getItem("adminAuthToken") || localStorage.getItem("userAuthToken") ) ? (
-                    alert("You do not have permission to access this content!"),
+                    alert("You are already logged in!"),
                     localStorage.getItem("userAuthToken") ? (
                         <Redirect to="/ClientHome" />
                     ) : (
-                        <Redirect to="/AdmintHome" />
+                        <Redirect to="/AdminHome" />
                     )
                 ) : (
                     <Component {...props} />
