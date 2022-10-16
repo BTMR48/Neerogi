@@ -1,4 +1,4 @@
-.progressCard{  
+.progressCarddas{  
     max-height: 851px;
    
     background: #ffffff;
@@ -66,7 +66,7 @@
    
    
 }
-.marksCard .imgBx{
+.progressCarddas .imgBx{
     position: relative;
     display: flex;
     justify-content: center;
@@ -75,7 +75,7 @@
 
 }
 
-.marksCard  .progressBtn{
+.progressCarddas  .progressBtn{
     padding: 8px 15px;
     margin-top: 15px;
     color:white;
