@@ -1,19 +1,17 @@
-.progressCard{  
-    max-height: 351px;
-   
+.feedbackCard{  
+    max-height: 1000px;
+    max-width: 1000px;
     background: #ffffff;
-    border-radius: 15px;
+    border-radius: 30px;
     border: none;
     overflow: hidden;
     padding-top: 20px;
     box-shadow:0px 24px 48px 0 rgba(0,0,0,0.1);
-}
+  }
 .levelProgress{
-    height: 100px;
-   
-   
+    height: 500px; 
 }
-.progressCard .imgBx{
+.viewAllQuestionCard .imgBx{
     position: relative;
     display: flex;
     justify-content: center;
@@ -21,15 +19,14 @@
     z-index: 1;
 
 }
-
-.progressCard  .progressBtn{
+.viewAllQuestionCard  .progressBtn{
     padding: 5px 12px;
     margin-top: 15px;
     color:white;
     border: none;
     border-radius: 100px;
 }
-.progressGrid{
+.questionGrid{
     display: grid;
     grid-gap: 2rem;
     padding: 1rem;
@@ -38,13 +35,45 @@
 
 }
 
+.questionImgHeight{
+    height: 150px;
+}
+.viewAllQuestionCard.questionsImg{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+}
+
+.viewAllQuestionCard .progressBtn{
+    padding: 5px 12px;
+    margin-top: 15px;
+    color:white;
+    border: none;
+    border-radius: 100px;
+    width: 150px;
+}
+
 @media (min-width: 600px) {
-    .progressGrid {
+    .questionGrid {
         grid-template-columns: repeat(1, 1fr);
     }
 }
 @media (min-width:800px) {
-    .progressGrid {
+    .questionGrid {
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
+.nextBtn{
+    padding: 5px 12px;
+    margin-top: 15px;
+    color:white;
+    border: none;
+    border-radius: 100px;
+}
+
+
+

@@ -89,7 +89,7 @@ function Login() {
                         </IconButton>
                     </span>
 
-                    <Link className="forgot" to="/patient/forgotpassword">Forgot password?</Link> 
+                    {/* <Link className="forgot" to="/patient/forgotpassword">Forgot password?</Link>  */}
                     <input className="form-submit-btn" type="submit" value="ලොග් වෙන්න" />
 
                     <br></br><br></br><br></br>

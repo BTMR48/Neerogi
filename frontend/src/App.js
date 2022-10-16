@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import PrivateRoute from './Routes/PrivateRoute';
+import LoggedRoute from './Routes/LoggedRoute';
+
 
 import './App.css';
 
@@ -13,6 +15,11 @@ import AddArticle from './components/Articles/AddArticles/AddArticle';
 import UpdateArticle from './components/Articles/UpdateArticle/UpdateArticle';
 import UpdateVideo from './components/Videos/UpdateVideo/UpdateVideo';
 import Footer from './components/Footer/Footer';
+import AddNewActivity from './components/ActivityManagement/AddNewActivity/addNewActivity';
+import AddActivity from './components/ActivityManagement/AddNewActivity/AddActivity';
+import AddNewQuestion from './components/ActivityManagement/AddQuestionsToActivity/AddNewQuestion';
+import ViewAllQuestions from './components/ActivityManagement/ViewAllQuestions/ViewAllQuestion';
+import UpdateNewQuestion from './components/ActivityManagement/UpdateQuestions/UpdateQuesttion';
 import AllDoctors from './components/DoctorList/alldoctors'
 import DoctorAdd from './components/DoctorAdd/DoctorAdd'
 import DoctorUpdate from './components/DoctorUpdate/DoctorUpdate'
@@ -30,6 +37,8 @@ import ClientHome from './components/HomePage/ClientHome/clientHome';
 import AdminHome from './components/HomePage/AdminHome/AdminHome';
 import MarksPDF from './components/AnswersTo/PdfDownload/MarksPdf';
 import UserChart from './components/Charts/UsersChart';
+import Feedback from './components/ActivityManagement/FeedbackPage/Feedback';
+
 
 function App() {
   return (
@@ -43,16 +52,13 @@ function App() {
             <Route path="/articles/add" exact component={AddArticle} />
             <Route path="/articles/update/:id" exact component={UpdateArticle} />
             <Route path="/videos/update/:id" exact component={UpdateVideo} />
-            <Route path="/user/signup" exact component={SignUp} />
-            <Route path="/" exact component={Login} />
+            <LoggedRoute path="/user/signup" exact component={SignUp} />
+            <LoggedRoute path="/" exact component={Login} />
             <PrivateRoute path="/doctor/all" exact component={AllDoctors} />
             <PrivateRoute path="/doctor/add" exact component={DoctorAdd} />
             <PrivateRoute path="/doctor/update/:id" exact component={DoctorUpdate} />
             <Route path="/doctor/cards" exact component={AllDoctorsClient} />
             <Route path="/doctor/cards/:id" exact component={SingleDoctor} />
-            <Route path="" exact component={AllDoctors} />
-            <Route path="/doctor/add" exact component={DoctorAdd} />
-            <Route path="/doctor/update/:id" exact component={DoctorUpdate} />
             <Route path="/question/AllQuestions" exact component={ AllQuestions } />
             <Route path="/question/AddQuestions" exact component={ AddQuestions } />
             <Route path="/question/UpdateQuestion/:id" exact component={ UpdateQuestion } />
@@ -65,7 +71,13 @@ function App() {
             <Route path="/AdminHome" exact component={AdminHome} />
             <Route path="/chart/user" exact component={UserChart} />
             <Route path="/InAnswers/MarksPDF/:marks" exact component={MarksPDF} />
-            <Footer/>
+            <Route path="/admin/addNewActivity" exact component = {AddNewActivity}/>
+            <Route path="/admin/addActivity" exact component = {AddActivity}/>
+            <Route path="/admin/addNewQuestion" exact component = {AddNewQuestion} />
+            <Route path='/admin/ViewAllQuestions' exact component={ViewAllQuestions} />
+            <Route path='/admin/ViewAllQuestions/updateQuestion/:id' exact component={UpdateNewQuestion} />
+            <Route path='/admin/questions/feedback' exact component={Feedback}/>
+         <Footer/>
         </div>
       </Router>
     </div>

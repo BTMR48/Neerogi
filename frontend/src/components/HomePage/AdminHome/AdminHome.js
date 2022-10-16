@@ -10,11 +10,16 @@ function InAnswers() {
 
 
 
-  function detailsQuestion(){
+function detailsQuestion(){
     history.push(`/question/AllQuestions`)
 }
+
 function userDetails(){
     history.push(`/question/AllQuestions`)
+}
+
+function doctorDetails(){
+    history.push(`/doctor/all`)
 }
 
     return (
@@ -70,11 +75,11 @@ function userDetails(){
             <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
                 <div className="col-md-4">
 
-                <div className="progressCards" >
+                <div className="progressCards" onClick={doctorDetails} >
                             
                             <div className="pp">
                                 <div align="center">
-                                    <h2>dd</h2>
+                                    <h2>Doctor Details Management</h2>
                                 
                                 </div>   
                             </div>

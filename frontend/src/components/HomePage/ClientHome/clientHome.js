@@ -14,6 +14,10 @@ function InAnswers() {
 function Answersforsuti(){
     history.push(`/Answer`)
 }
+
+function doctorDetails(){
+    history.push(`/doctor/cards`)
+}
 const myStyle={
     backgroundImage: 
     "url('/images/backgroundimg.jpg')",
@@ -105,11 +109,11 @@ const myStyle={
                                 
                         </div>
             </div>
-            <div className="progressCards" >
+            <div className="progressCards" onClick={doctorDetails}>
                             
                             <div className="pp">
                                 <div align="center">
-                                    <h2>Details Question</h2>
+                                    <h2>වෛද්‍ය තොරතුරු</h2>
                                 
                                 </div>   
                             </div>

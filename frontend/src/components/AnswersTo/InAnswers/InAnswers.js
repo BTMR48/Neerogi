@@ -31,8 +31,8 @@ function InAnswers() {
 
     backgroundImage: 
     "url('/images/backgroundimg.jpg')",
-     height:'160vh',
-     marginBottom:'-120px',
+    height:'200vh',
+     //marginBottom:'-120px',
     // fontSize:'50px',
     backgroundSize: 'cover',
     // backgroundRepeat: 'no-repeat',
@@ -59,7 +59,7 @@ function InAnswers() {
 
                
                     <div> 
-                        <div className="progressCard" >
+                        <div className="progressCardtharindu" >
                             
                             <div className="p-3">
                                 <h2>1. ලමයා දිනකට කොච්චර වචන පවසනවාද?</h2>
@@ -95,7 +95,7 @@ function InAnswers() {
                         </div>
 
                         <br></br>
-                        <div className="progressCard" >
+                        <div className="progressCardtharindu" >
                             
                             <div className="p-3">
                                 <h2>2. ඔබ කාමරය හරහා යමක් පෙන්වා ඇත්නම්, ඔබේ දරුවා ඒ දෙස බලනවාද?</h2>
@@ -130,7 +130,7 @@ function InAnswers() {
                             
                         </div>
                         <br></br>
-                        <div className="progressCard" >
+                        <div className="progressCardtharindu" >
                             
                             <div className="p-3">
                                 <h2>3.ඔබේ දරුවාට යමක් පෙන්නු විට දරුවා එය හදුනා ගන්නවා ද?</h2>
@@ -165,7 +165,7 @@ function InAnswers() {
                             
                         </div>
                         <br></br>
-                        <div className="progressCard" >
+                        <div className="progressCardtharindu" >
                             
                             <div className="p-3">
                                 <h2>4.ඔබේ දරුවා වර්ණ 5කට වඩා හදුනා ගන්නවා ද?</h2>
@@ -199,7 +199,7 @@ function InAnswers() {
                             </div>
                             
                         </div><br></br>
-                        <div className="progressCard" >
+                        <div className="progressCardtharindu" >
                             
                             <div className="p-3">
                                 <h2>5.ඔබේ දරුවා පළමු වචනය පැවසුවේ?</h2>

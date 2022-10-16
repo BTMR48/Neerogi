@@ -14,9 +14,11 @@ function InAnswers(props) {
   function view(){
     history.push(`/doctor/all`)
   }
+  
   function viewr(){
     history.push(`/articles/list`)
   }
+
    
   function download(){
     history.push(`/InAnswers/MarksPDF/${marks}`)
@@ -49,7 +51,7 @@ function InAnswers(props) {
   
                
                     <div> 
-                        <div className="progressCard" >
+                        <div className="progressCarddas" >
                             <div className="p-3">
                                 <h2>මුලු ලකුණු</h2>
                                 <div align="right">
