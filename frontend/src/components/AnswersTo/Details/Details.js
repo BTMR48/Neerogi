@@ -64,7 +64,7 @@ function AllQuestions() {
 
                {questions.map((Question,key)=>( 
                 <div key={key}> 
-                    <div className="progressCard" >
+                    <div className="progressCardtharindu" >
                         
                         <div className="p-3">
                             {/* <h2>{Question.id}</h2> */}

@@ -67,7 +67,7 @@ const location = useLocation()
               <div className="col-3">
               </div>
         </div>
-        <div className="progressGrid"  > 
+        <div className="progressGridtharindu"  > 
           {isAdmin && 
             <Button  className="mx-2 progressBtn" style={{backgroundColor:blue[400],color:'white'}} onClick={()=>addQuestion()}>
             Add Question <AddIcon/>
@@ -75,7 +75,7 @@ const location = useLocation()
           }
           {questions.map((Question,key)=>( 
                 <div key={key}> 
-                    <div className="progressCard" >
+                    <div className="progressGridtharindu" >
                         
                         <div className="p-3">
                             {/* <h2>{Question.id}</h2> */}

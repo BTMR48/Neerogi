@@ -1,4 +1,4 @@
-.progressCard{  
+.progressGridtharindu{  
     max-height: 351px;
    
     background: #ffffff;
@@ -13,7 +13,7 @@
    
    
 }
-.progressCard .imgBx{
+.progressGridtharindu .imgBx{
     position: relative;
     display: flex;
     justify-content: center;
@@ -22,14 +22,14 @@
 
 }
 
-.progressCard  .progressBtn{
+.progressGridtharindu  .progressBtn{
     padding: 8px 15px;
     margin-top: 15px;
     color:white;
     border: none;
     border-radius: 100px;
 }
-.progressGrid{
+.progressGridtharindu{
     display: grid;
     grid-gap: 2rem;
     padding: 1rem;
@@ -39,12 +39,12 @@
 }
 
 @media (min-width: 600px) {
-    .progressGrid {
+    .progressGridtharindu {
         grid-template-columns: repeat(1, 1fr);
     }
 }
 @media (min-width:800px) {
-    .progressGrid {
+    .progressGridtharindu {
         grid-template-columns: repeat(1, 1fr);
     }
 }
