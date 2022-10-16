@@ -15,18 +15,15 @@ function ArticleItem() {
 
   const [articles, setArticles] = useState([])
   const history = useHistory()
-  const [user, setUser] = useState("");
   const [isAdmin,setIsAdmin]= useState(false);
   const [isUser,setIsUser]= useState(false)
 
   useEffect(() => { 
-    if(localStorage.getItem("user")){
-      setUser(JSON.parse(localStorage.getItem('user')))
-    }
-
+ 
     if(localStorage.getItem("adminAuthToken")){
       setIsAdmin(true)
     }
+
     if(localStorage.getItem("userAuthToken")){
       setIsUser(true)
     }
@@ -90,28 +87,43 @@ function update(id){
     backgroundSize: 'cover',
     // backgroundRepeat: 'no-repeat',
 };
-const car = () => {
+const displayContent = () => {
     return (
-        <div className="container" style={{paddingTop:35}}>
-          <div className="row">
-              <div className="col-4" style={{paddingTop:55}}>
-                <div className="pb-2 px-3 d-flex flex-wrap align-items-center justify-content-between">
-                    <h2 style={{textAlign: "center"}}>Articles</h2>
+        <div className="container" style={{paddingTop:35,paddingLeft:65}}>
+          <div className="row"  style={{textAlign: "center"}}>
+          {isUser &&
+              <div  style={{padding:15,textTransform: "uppercase",color: "#4CAF50"}}>
+                <div >
+                    <h2>කියවන්න</h2>
                 </div>
               </div>
-              <div className="col-3">
+          }
               </div>
-              <div className="col-5">
+              <div className="row">
+              <div className="col-7">
+              </div>
+              <div className="col-5"  style={{padding:25,paddingBottom:55}}>
+                {isUser ?
                 <div className="px-3 search" >
                   <input 
                     type="text" 
                     name="search" 
                     id="search"
-                    placeholder="Search" 
+                    placeholder="සොයන්න" 
                     onChange={handleSearchAll} 
                     required 
                   />
                 </div>
+: <div className="px-3 search" >
+<input 
+  type="text" 
+  name="search" 
+  id="search"
+  placeholder="Search" 
+  onChange={handleSearchAll} 
+  required 
+/>
+</div>}
                
           </div>
         </div>
@@ -123,7 +135,7 @@ const car = () => {
         }
           {articles.map((Article,key)=>( 
                 <div key={key}> 
-                    <div className="productCard" >
+                    <div className="productCard">
                         <div className="imgBx">
                             <img  src={`${Article.imgUrl}`} alt="Article" className="itemProduct" onClick={() => view(Article.pdfUrl)}/>
                         </div>
@@ -159,10 +171,10 @@ const car = () => {
       <div>
         {isAdmin === false ?
         <div style={myStyle}>
-        {car()}
+        {displayContent()}
         </div>
         :<div>
-        {car()}
+        {displayContent()}
         </div>}
       </div>
     )

@@ -13,6 +13,11 @@ import AddArticle from './components/Articles/AddArticles/AddArticle';
 import UpdateArticle from './components/Articles/UpdateArticle/UpdateArticle';
 import UpdateVideo from './components/Videos/UpdateVideo/UpdateVideo';
 import Footer from './components/Footer/Footer';
+import AddNewActivity from './components/ActivityManagement/AddNewActivity/addNewActivity';
+import AddActivity from './components/ActivityManagement/AddNewActivity/AddActivity';
+import AddNewQuestion from './components/ActivityManagement/AddQuestionsToActivity/AddNewQuestion';
+import ViewAllQuestions from './components/ActivityManagement/ViewAllQuestions/ViewAllQuestion';
+import UpdateNewQuestion from './components/ActivityManagement/UpdateQuestions/UpdateQuesttion';
 import AllDoctors from './components/DoctorList/alldoctors'
 import DoctorAdd from './components/DoctorAdd/DoctorAdd'
 import DoctorUpdate from './components/DoctorUpdate/DoctorUpdate'
@@ -29,12 +34,14 @@ import OneDetails from './components/AnswersTo/OneDetails/OneDetails';
 import ClientHome from './components/HomePage/ClientHome/clientHome';
 import AdminHome from './components/HomePage/AdminHome/AdminHome';
 import MarksPDF from './components/AnswersTo/PdfDownload/MarksPdf';
+import Feedback from './components/ActivityManagement/FeedbackPage/Feedback';
 
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <div>
         <Header/>
             <Route path="/articles/list" exact component={ArticlesList} />
             <Route path="/videos/list" exact component={VideosList} />
@@ -60,7 +67,14 @@ function App() {
             <Route path="/ClientHome" exact component={ClientHome} />
             <Route path="/AdminHome" exact component={AdminHome} />
             <Route path="/InAnswers/MarksPDF/:marks" exact component={MarksPDF} />
-        <Footer/>
+            <Route path="/admin/addNewActivity" exact component = {AddNewActivity}/>
+            <Route path="/admin/addActivity" exact component = {AddActivity}/>
+            <Route path="/admin/addNewQuestion" exact component = {AddNewQuestion} />
+            <Route path='/admin/ViewAllQuestions' exact component={ViewAllQuestions} />
+            <Route path='/admin/ViewAllQuestions/updateQuestion/:id' exact component={UpdateNewQuestion} />
+            <Route path='/admin/questions/feedback' exact component={Feedback}/>
+         <Footer/>
+        </div>
       </Router>
     </div>
   );
