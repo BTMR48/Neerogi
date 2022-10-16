@@ -8,6 +8,7 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import IconButton from '@material-ui/core/IconButton';
 
+import generatePDF from '../../utils/reportGenerator'
 import './alldoctors.css'
 
 
@@ -83,6 +84,7 @@ function AllDoctors () {
         history.push(`/doctor/add`)
     }
 
+
     return (
         <div className="container">
             <div className="row">
@@ -115,7 +117,7 @@ function AllDoctors () {
                 <div >
                     
                     <button  className="addDoctorBtn" style={{backgroundColor:'#90DCF3'}} onClick={()=>addDoctor()}><AddIcon style={{ color: 'white', width: '20%' }} ></AddIcon> Add Doctor </button>
-                    <button  className="reportBtn" style={{backgroundColor:'#90DCF3'}} onClick={()=>addDoctor()}><DownloadIcon style={{ color: 'white', width: '20%' }} ></DownloadIcon> Download Report </button>
+                    <button  className="reportBtn" style={{backgroundColor:'#90DCF3'}} onClick={()=>generatePDF(doctors)}><DownloadIcon style={{ color: 'white', width: '20%' }} ></DownloadIcon> Download Report </button>
                 </div>
                 
             {/* }  */}
@@ -146,13 +148,13 @@ function AllDoctors () {
                                     <h6>{Doctor.email}</h6>
                                 </td>
 
-                                <td>
-                                    <h6>{Doctor.specialty}</h6>
-                                </td>
-
                                 {/* <td>
-                                    {Doctor.fields.map(fields => <h6>{fields}</h6>)}
+                                    <h6>{Doctor.specialty}</h6>
                                 </td> */}
+
+                                <td>
+                                    {Doctor.specialty.map(specialty => <h6>{specialty}</h6>)}
+                                </td>
 
                                 <td>
                                     {/* { isAdmin && */}
