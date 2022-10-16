@@ -42,7 +42,6 @@ function App() {
     <div className="App">
       <Router>
         <div>
-
         <Header/>
             <Route path="/articles/list" exact component={ArticlesList} />
             <Route path="/videos/list" exact component={VideosList} />
@@ -57,9 +56,6 @@ function App() {
             <PrivateRoute path="/doctor/update/:id" exact component={DoctorUpdate} />
             <Route path="/doctor/cards" exact component={AllDoctorsClient} />
             <Route path="/doctor/cards/:id" exact component={SingleDoctor} />
-            <Route path="/doctor/all" exact component={AllDoctors} />
-            <Route path="/doctor/add" exact component={DoctorAdd} />
-            <Route path="/doctor/update/:id" exact component={DoctorUpdate} />
             <Route path="/question/AllQuestions" exact component={ AllQuestions } />
             <Route path="/question/AddQuestions" exact component={ AddQuestions } />
             <Route path="/question/UpdateQuestion/:id" exact component={ UpdateQuestion } />

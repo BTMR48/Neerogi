@@ -65,19 +65,31 @@ function AllDoctorsClient() {
   function Channel(id){
     history.push(`/doctor/cards/${id}`)
   }
+
+  const myStyle={
+    backgroundImage: 
+    "url('/images/backgroundimg.jpg')",
+     height:'100vh',
+     marginBottom:'-120px',
+    // fontSize:'50px',
+    backgroundSize: 'cover',
+    // backgroundRepeat: 'no-repeat',
+  };
   
 
     return (
-      <div>
+      <div style={myStyle}>
         <div className="row">
           <div className="col-4" >
             <div align="center">
+              <br/>
                 <h2><b>වෛද්‍ය තොරතුරු</b></h2>
             </div>
           </div>
           <div className="col-3">
           </div>
           <div className="col-5">
+          <br/>
             <div className="px-3 search" align="center">
               <input 
                 type="text" 
@@ -90,7 +102,7 @@ function AllDoctorsClient() {
             </div>
           </div>
         </div>
-        <Carousel wipeable={true}  responsive={responsive} autoPlay={true} autoPlaySpeed={2000} infinite={true} className="px-5 py-5 mb-2"> 
+        <Carousel wipeable={true}  responsive={responsive} autoPlay={true} autoPlaySpeed={3500} infinite={true} className="px-5 py-5 mb-2"> 
           {doctors.map((Doctor,key)=>( 
               <div key={key}> 
                   <div className="doctorsCard">

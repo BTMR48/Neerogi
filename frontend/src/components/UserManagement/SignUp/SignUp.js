@@ -153,7 +153,7 @@ function SignUp() {
                                                     </IconButton>
                                                     </InputAdornment>
                                                 }
-                                                inputProps={{style: {padding: 12}}}
+                                                inputProps={{style: {padding: 12}, pattern: "[A-Za-z0-9]{8,}"}}
                                                 onFocus={passwordOnFocus}
                                                 onBlur={passwordOnBlur}
                                             />
