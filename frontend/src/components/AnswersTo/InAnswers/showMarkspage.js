@@ -14,10 +14,10 @@ function InAnswers(props) {
   function view(){
     history.push(`/doctor/cards`)
   }
+  
   function viewr(){
     history.push(`/articles/list`)
   }
-
 
    
   function download(){
@@ -26,8 +26,12 @@ function InAnswers(props) {
   const myStyle={
     backgroundImage: 
     "url('/images/backgroundimg.jpg')",
-     height:'120vh',
+
+     height:'160vh',
+
+
      //marginBottom:'-120px',
+
     // fontSize:'50px',
     backgroundSize: 'cover',
     // backgroundRepeat: 'no-repeat',

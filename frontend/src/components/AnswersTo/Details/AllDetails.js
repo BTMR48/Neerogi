@@ -47,7 +47,8 @@ function ProgressLevel() {
     backgroundImage: 
     "url('/images/backgroundimg.jpg')",
      height:'200vh',
-     //marginBottom:'-120px',
+
+     marginBottom:'-120px',
     // fontSize:'50px',
     backgroundSize: 'cover',
     // backgroundRepeat: 'no-repeat',
