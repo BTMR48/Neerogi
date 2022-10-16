@@ -21,7 +21,7 @@ function doctorDetails(){
 const myStyle={
     backgroundImage: 
     "url('/images/backgroundimg.jpg')",
-     height:'120vh',
+     height:'160vh',
      marginBottom:'-120px',
     // fontSize:'50px',
     backgroundSize: 'cover',
@@ -75,7 +75,7 @@ const myStyle={
                             
                             <div className="pp">
                                 <div align="center">
-                                    <h2>Details Question</h2>
+                                    <h2>ලිපි</h2>
                                 
                                 </div>   
                             </div>
@@ -90,7 +90,7 @@ const myStyle={
                             
                             <div className="pp">
                                 <div align="center">
-                                    <h2>Details Question</h2>
+                                    <h2>වීඩියෝ</h2>
                                 
                                 </div>   
                             </div>
@@ -102,7 +102,7 @@ const myStyle={
                             
                             <div className="pp">
                                 <div align="center">
-                                    <h2>Details Question</h2>
+                                    <h2>ක්‍රියාකාරකම්</h2>
                                 
                                 </div>   
                             </div>

@@ -1,4 +1,4 @@
-.progressCard{  
+.progressCardtharindu{  
     max-height: 351px;
    
     background: #ffffff;
@@ -13,7 +13,7 @@
    
    
 }
-.progressCard .imgBx{
+.progressCardtharindu .imgBx{
     position: relative;
     display: flex;
     justify-content: center;
@@ -22,7 +22,7 @@
 
 }
 
-.progressCard  .progressBtn{
+.progressCardtharindu  .progressBtn{
     padding: 8px 15px;
     margin-top: 15px;
     color:white;

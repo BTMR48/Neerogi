@@ -28,13 +28,14 @@ function InAnswers() {
     history.push(`/questions/markspage/${marks}`);
   }
   const myStyle={
+
     backgroundImage: 
     "url('/images/backgroundimg.jpg')",
     height:'200vh',
      //marginBottom:'-120px',
     // fontSize:'50px',
-   // backgroundSize: 'cover',
-    backgroundRepeat: 'repeat',
+    backgroundSize: 'cover',
+    // backgroundRepeat: 'no-repeat',
 };
 
 

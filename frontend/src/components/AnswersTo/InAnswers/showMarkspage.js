@@ -12,12 +12,12 @@ function InAnswers(props) {
   const marks = props.match.params.marks;
   
   function view(){
-    history.push(`/doctor/all`)
+    history.push(`/doctor/cards`)
   }
+  
   function viewr(){
     history.push(`/articles/list`)
   }
-
 
    
   function download(){
@@ -26,8 +26,12 @@ function InAnswers(props) {
   const myStyle={
     backgroundImage: 
     "url('/images/backgroundimg.jpg')",
-     height:'100vh',
-     marginBottom:'-120px',
+
+     height:'160vh',
+
+
+     //marginBottom:'-120px',
+
     // fontSize:'50px',
     backgroundSize: 'cover',
     // backgroundRepeat: 'no-repeat',
@@ -99,7 +103,7 @@ function InAnswers(props) {
                                 <div align="right">
                                 <span> 
 
-                                <button className="progressBtn" style={{backgroundColor:amber[800]}} onClick={()=>view()}> යොමුවන්න </button>
+                                <button className="progressBtn" style={{backgroundColor:amber[800]}} onClick={()=>viewr()}> යොමුවන්න </button>
                                 </span> 
                                 </div>
                             </div>

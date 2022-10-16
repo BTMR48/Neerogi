@@ -41,12 +41,12 @@ function Submit(props) {
            
              
         })
-       // history.push(`/evolution/addProgress`)     
+    
     }
     const myStyle={
         backgroundImage: 
         "url('/images/backgroundimg.jpg')",
-         height:'100vh',
+         height:'160vh',
          marginBottom:'-120px',
         // fontSize:'50px',
         backgroundSize: 'cover',

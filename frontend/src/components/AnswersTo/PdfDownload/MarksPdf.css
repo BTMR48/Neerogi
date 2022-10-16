@@ -1,4 +1,4 @@
-.progressCard{  
+.progressCarddaspdf{  
     max-height: 851px;
     background: #ffffff;
     border-radius: 15px;
@@ -11,7 +11,7 @@
     height: 100px;
 
 }
-.progressCard .imgBx{
+.progressCarddaspdf .imgBx{
     position: relative;
     display: flex;
     justify-content: center;
@@ -20,7 +20,7 @@
 
 }
 
-.progressCard  .progressBtn{
+.progressCarddaspdf  .progressBtn{
     padding: 8px 15px;
     margin-top: 15px;
     color:white;

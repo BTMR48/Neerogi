@@ -36,6 +36,7 @@ import OneDetails from './components/AnswersTo/OneDetails/OneDetails';
 import ClientHome from './components/HomePage/ClientHome/clientHome';
 import AdminHome from './components/HomePage/AdminHome/AdminHome';
 import MarksPDF from './components/AnswersTo/PdfDownload/MarksPdf';
+import UserChart from './components/Charts/UsersChart';
 import Feedback from './components/ActivityManagement/FeedbackPage/Feedback';
 
 
@@ -68,6 +69,7 @@ function App() {
             <Route path="/AllDetails/onedetails/:name" exact component={OneDetails} />
             <Route path="/ClientHome" exact component={ClientHome} />
             <Route path="/AdminHome" exact component={AdminHome} />
+            <Route path="/chart/user" exact component={UserChart} />
             <Route path="/InAnswers/MarksPDF/:marks" exact component={MarksPDF} />
             <Route path="/admin/addNewActivity" exact component = {AddNewActivity}/>
             <Route path="/admin/addActivity" exact component = {AddActivity}/>
