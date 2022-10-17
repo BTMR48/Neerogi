@@ -14,9 +14,11 @@ Mainly focused Features of the application for quality education
 නීරෝගී provides the opportunity to raise awareness about autism and guide parents on the right path for treatments and care.
 
 Tools & Technologies used
-FERN - Firebase ,React & Node js
 
-How to run
-Download or clone the project
-Execute npm i command inside both backend & frontend
-Run backend & frontend by executing the npm start command
+    FERN - Firebase ,React & Node js
+
+How to run the project
+
+    Download or clone the project
+    Execute npm i command inside both backend & frontend
+    Run backend & frontend by executing the npm start command
