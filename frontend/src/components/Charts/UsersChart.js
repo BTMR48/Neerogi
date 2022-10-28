@@ -57,7 +57,7 @@ function UsersChart() {
         <div className="row">
             <div className="col-12">
                 <div className="pb-2 px-3 d-flex flex-wrap align-items-center justify-content-between">
-                    <h2>&nbsp;User Registration Report</h2>
+                    <h2>&nbsp;User Registration Report-For the year 2022</h2>
                 </div>
             </div>
         </div>

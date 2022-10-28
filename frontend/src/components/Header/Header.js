@@ -57,12 +57,12 @@ function Header() {
             icon: <EventAvailableIcon/>,
             cName: 'nav-text'
         },
-        // (isUser || isAdmin) &&{
-        //     title: 'Topic Evaluation',
-        //     path: `/topiceval/view`,
-        //     icon: <EventAvailableIcon/>,
-        //     cName: 'nav-text'
-        // },
+         isAdmin &&{
+            title: 'ක්‍රියාකාරකම්',
+            path: `/admin/addNewActivity`,
+            icon: <EventAvailableIcon/>,
+            cName: 'nav-text'
+        },
         // {    
         //   title: 'Marking Schema',
         //   path: `/marking`,

@@ -10,7 +10,6 @@ function AddActivity(){
     const [activityCode, setActivityCode]=useState(""); 
     const [activityName, setActivityName]=useState(""); 
 
-
     const myStyle={
         backgroundImage: 
         "url('/images/backgroundimg.jpg')",
