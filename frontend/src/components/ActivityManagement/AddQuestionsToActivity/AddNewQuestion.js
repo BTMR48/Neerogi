@@ -6,6 +6,8 @@ import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 import { TextField } from '@material-ui/core';
 import { red } from '@mui/material/colors';
+import { useHistory } from 'react-router-dom';
+
 
 
 
@@ -14,6 +16,8 @@ function AddNewQuestion(){
     const[questionId, setQuestionId] = useState("");
     const[questionNum, setQuestionNum] = useState("");
     const[question, setQuestion] = useState("");
+    const history = useHistory();
+
 
     const myStyle={
         backgroundImage: 
@@ -174,6 +178,8 @@ function AddNewQuestion(){
             try {
                 await axios.post("https://api.cloudinary.com/v1_1/tbrmy/video/upload", formData).then((res) =>{
                     voiceRecord  = res.data.secure_url
+                    
+
                 })
             } catch (error) {
                 alert(error)
@@ -187,6 +193,7 @@ function AddNewQuestion(){
             await axios.post("http://localhost:8070/activityQuestions/addNewQuestion", newQuestion , config)
             alert("Question Added Successfully")  
             event.target.reset(); 
+            history.push(`/admin/viewAllQuestions`)
         }catch (error) {         
             alert(error,"Question can't be Added");
         }
