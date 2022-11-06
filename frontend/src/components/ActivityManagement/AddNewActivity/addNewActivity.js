@@ -83,7 +83,9 @@ function AddNewActivity() {
                       <h2>Activities </h2>
                   </div>
                 </div>
+
                 <div className="col-3">
+
                 </div>
                 <div className="col-5">
             </div>
